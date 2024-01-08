@@ -19,26 +19,20 @@ local plugins = {
 		config = function()
 			vim.cmd.colorscheme('terafox')
 		end
-	},
-	{ 
+	},{ 
 		"folke/which-key.nvim", 
 		lazy = true,
-	},
-	{ 
+	},{ 
 		"folke/neoconf.nvim",
 		cmd = "Neoconf" 
-	},
-	{ 
+	},{ 
 		"folke/neodev.nvim",
-	},
-	{
+	},{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-	},
-	{ 
+	},{ 
 		"nvim-telescope/telescope.nvim",
-	},
-	{
+	},{
 		"folke/zen-mode.nvim",
 		opts = {
 			window = {
@@ -49,8 +43,10 @@ local plugins = {
 					signcolumn = "no",
 				}
 			},
-			
-		}
+		},
+		-- TODO: create a config to run ZenMode everytime I enter a file and to exit everytime I exit a file
+	},{
+		"folke/twilight.nvim",
 	}
 }
 
