@@ -1,2 +1,2 @@
-require("lua.felicio")
-require("lua.lazy")
+require("custom")
+require("config")
