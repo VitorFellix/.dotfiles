@@ -65,6 +65,9 @@ local plugins = {
 	},{
 		"folke/twilight.nvim", -- spotlight on the function that you are looking at, good on zenmode I guess?
 	},{
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+	},{
 		-- LSP Support
 		{
 			'VonHeikemen/lsp-zero.nvim',
