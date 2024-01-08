@@ -29,13 +29,29 @@ local plugins = {
 		cmd = "Neoconf" 
 	},
 	{ 
-		"folke/neodev.nvim"
+		"folke/neodev.nvim",
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
-	"nvim-telescope/telescope.nvim",
+	{ 
+		"nvim-telescope/telescope.nvim",
+	},
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				backdrop = 1, -- defines the color of the background, makes it blacker, 1 is default color
+				options = {
+					number = true,
+					relativenumber = true,
+					signcolumn = "no",
+				}
+			},
+			
+		}
+	}
 }
 
 require("lazy").setup(plugins, {})
