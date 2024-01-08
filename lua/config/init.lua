@@ -30,6 +30,17 @@ local plugins = {
 	},{
 		"nvim-treesitter/nvim-treesitter", -- better highlighting
 		build = ":TSUpdate",
+		config = function () 
+			local configs = require("nvim-treesitter.configs")
+
+			configs.setup({
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "query",
+					"elixir", "heex", "javascript", "html", "java", "scala", "go"},
+				sync_install = false,
+				highlight = { enable = true },
+				indent = { enable = true },  
+			})
+		end
 	},{ 
 		"nvim-telescope/telescope.nvim",
 		dependencies = { -- you can install ripgrep too (apt install ripgrep)
