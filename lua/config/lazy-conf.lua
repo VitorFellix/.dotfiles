@@ -88,6 +88,10 @@ local plugins = {
 				{'L3MON4D3/LuaSnip'}
 			},
 		},
+	},{
+		"theprimeagen/harpoon",
+	},{
+		"tpope/vim-fugitive"
 	}
 }
 
