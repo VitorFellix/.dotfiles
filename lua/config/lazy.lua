@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 
+	"folke/zen-mode.nvim",
 	"folke/neodev.nvim",
 	"nvim-tree/nvim-web-devicons", -- icons used by nerdfont
 	"williamboman/mason.nvim",
@@ -53,16 +54,6 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter", -- better highlighting
 		build = ":TSUpdate",
-		config = function()
-			local configs = require("nvim-treesitter.configs")
-			configs.setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query",
-					"elixir", "heex", "javascript", "html", "java", "scala", "go" },
-				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true },
-			})
-		end
 	},
 
 	{
@@ -73,41 +64,24 @@ local plugins = {
 		}
 	},
 
+	-- LSP Support
 	{
-		"folke/zen-mode.nvim", -- zen-mode =_=
-		opts = {
-			window = {
-				backdrop = 1, -- defines the color of the background, makes it blacker, 1 is default color
-				options = {
-					number = true,
-					relativenumber = true,
-					signcolumn = "no",
-				}
-			},
-		},
-		-- TODO: create a config to run ZenMode everytime I enter a file and to exit everytime I exit a file
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v3.x',
+		lazy = true,
+		config = false,
 	},
-
 	{
-		-- LSP Support
-		{
-			'VonHeikemen/lsp-zero.nvim',
-			branch = 'v3.x',
-			lazy = true,
-			config = false,
-		},
-		{
-			'neovim/nvim-lspconfig',
-			dependencies = {
-				{ 'hrsh7th/cmp-nvim-lsp' },
-			}
-		},
-		-- Autocompletion
-		{
-			'hrsh7th/nvim-cmp',
-			dependencies = {
-				{ 'L3MON4D3/LuaSnip' }
-			},
+		'neovim/nvim-lspconfig',
+		dependencies = {
+			{ 'hrsh7th/cmp-nvim-lsp' },
+		}
+	},
+	-- Autocompletion
+	{
+		'hrsh7th/nvim-cmp',
+		dependencies = {
+			{ 'L3MON4D3/LuaSnip' }
 		},
 	},
 
