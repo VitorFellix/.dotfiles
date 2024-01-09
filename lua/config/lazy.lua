@@ -51,11 +51,6 @@ local plugins = {
 	},
 
 	{
-		"folke/neoconf.nvim",
-		cmd = "Neoconf",
-	},
-
-	{
 		"nvim-treesitter/nvim-treesitter", -- better highlighting
 		build = ":TSUpdate",
 		config = function()
@@ -119,8 +114,3 @@ local plugins = {
 }
 
 require("lazy").setup(plugins, {})
-
--- require("nvim-treesitter").setup()
-require("neoconf").setup() -- I don't know how to use this yet
-require("which-key").setup()
-require("nvim_comment").setup()
