@@ -9,10 +9,10 @@ vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 12
 vim.opt.colorcolumn = "80"
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.updatetime = 50 -- possible performance loss, make it 1000 or 4000 if needed
