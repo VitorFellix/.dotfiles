@@ -23,23 +23,12 @@ local plugins = {
 	'folke/twilight.nvim', -- spotlight on the function that you are looking at, good on zenmode I guess?
 	'terrortylor/nvim-comment',
 
-	{
-		'rose-pine/neovim', -- colorscheme of primeagen
-		-- name = 'rose-pine',
-		-- lazy = false,
-		-- priority = 1000,
-		-- config = function()
-		-- 	vim.cmd.colorscheme('rose-pine-moon')
-		-- end
-	},
-	{
-		'EdenEast/nightfox.nvim', -- colorscheme <3
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme('nightfox')
-		end
-	},
+	-- colorschemes
+	-- { 'rose-pine/neovim', name = 'rose-pine', },
+	'rebelot/kanagawa.nvim',
+	'aktersnurra/no-clown-fiesta.nvim',
+	'EdenEast/nightfox.nvim',
+	{ 'catppuccin/nvim',  name = 'catppuccin', },
 
 	{
 		'folke/which-key.nvim',
@@ -85,5 +74,7 @@ local plugins = {
 	},
 
 }
+
+vim.cmd.colorscheme("habamax")
 
 require('lazy').setup(plugins, {})

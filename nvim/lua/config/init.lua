@@ -1,6 +1,7 @@
 require('config.lazy')
 require('config.remap')
 require('config.vim')
+require('config.colorscheme')
 
 require('config.lsp')
 require('config.telescope')

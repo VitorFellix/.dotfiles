@@ -5,9 +5,10 @@ require 'zen-mode'.setup {
 			options = {
 				number = true,
 				relativenumber = true,
-				signcolumn = "no",
+				signcolumn = 'no',
 			}
 		},
 	},
 	-- TODO: create a config to run ZenMode everytime I enter a file and to exit everytime I exit a file
 }
+
