@@ -4,6 +4,9 @@ lsp_zero.on_attach(function(client, bufnr)
 	-- see :help lsp-zero-keybindings
 	-- to learn the available actions
 	lsp_zero.default_keymaps({ buffer = bufnr })
+
+	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 end)
 
 require('mason').setup({})
