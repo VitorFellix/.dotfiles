@@ -1,8 +1,7 @@
 #!/bin/bash
 
 echo 'installing dependencies'
-sudo apt install nala
-sudo nala install zsh tmux neovim
+sudo apt install zsh tmux 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # install ohmyzsh
 chsh -s $(which zsh) # sets zsh as the default shell
 
