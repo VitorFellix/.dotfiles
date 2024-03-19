@@ -14,4 +14,8 @@ rm -rf ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 echo 'added link for ~/.zshrc'
 
+rm -rf ~/.tmux.conf
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+echo 'added link for ~/.tmux.conf'
+
 echo 'finished'
