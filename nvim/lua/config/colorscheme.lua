@@ -2,4 +2,4 @@
 -- vim.cmd('colorscheme rose-pine')
 
 require('catppuccin')
-vim.cmd('colorscheme catppuccin-mocha')
+vim.cmd('colorscheme catppuccin-latte')
