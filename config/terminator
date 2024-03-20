@@ -1,0 +1,26 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#eff1f5"
+    background_darkness = 0.75
+    cursor_blink = False
+    cursor_color = "#e86c22"
+    cursor_color_fg = False
+    foreground_color = "#4c4f69"
+    show_titlebar = False
+    palette = "#5c5f77:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#acb0be:#6c6f85:#d20f39:#40a02b:#df8e1d:#1e66f5:#ea76cb:#179299:#bcc0cc"
+    use_custom_command = True
+    custom_command = tmux
+    copy_on_selection = True
+    background_image = None
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
