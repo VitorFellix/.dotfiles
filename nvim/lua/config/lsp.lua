@@ -37,10 +37,11 @@ lspconfig.lua_ls.setup {
 		Lua = {}
 	},
 	diagnostics = {
-		globals = {'vim'}
+		globals = { 'vim' }
 	}
 }
 
+lspconfig.metals.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

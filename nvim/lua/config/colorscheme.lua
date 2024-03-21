@@ -1,5 +1,5 @@
--- require('rose-pine')
--- vim.cmd('colorscheme rose-pine')
+require('rose-pine')
+vim.cmd('colorscheme rose-pine')
 
-require('catppuccin')
-vim.cmd('colorscheme catppuccin-mocha')
+-- require('catppuccin')
+-- vim.cmd('colorscheme catppuccin-mocha')
