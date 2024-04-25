@@ -24,10 +24,20 @@ local plugins = {
 	'tpope/vim-fugitive',
 	'folke/twilight.nvim', -- spotlight on the function that you are looking at, good on zenmode I guess?
 	'terrortylor/nvim-comment',
+	'j-hui/fidget.nvim', -- lil messages on the bottom when lsp loads something
 
 	-- colorschemes
 	{
-		{ 'rose-pine/neovim', name = 'rose-pine' },
+		{
+			'rose-pine/neovim',
+			name = 'rose-pine',
+			config = function()
+				vim.cmd('colorscheme rose-pine')
+			end
+		},
+
+		-- unused colorschemes
+		-- { 'folke/tokyonight.nvim', name = 'tokyonight' },
 		-- {'rebelot/kanagawa.nvim', name = 'kanagawa' },
 		-- { 'aktersnurra/no-clown-fiesta.nvim', name = 'no-clown' },
 		-- {'EdenEast/nightfox.nvim', name = 'night-fox' },
@@ -63,6 +73,7 @@ local plugins = {
 		lazy = true,
 		config = false,
 	},
+
 	{
 		'neovim/nvim-lspconfig',
 		dependencies = {
@@ -104,14 +115,11 @@ local plugins = {
 			return conf
 		end
 	},
+
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" }
-	},
-
-	{
-		"j-hui/fidget.nvim", -- lil messages on the bottom when lsp loads something
 	},
 
 	{
@@ -157,7 +165,5 @@ local plugins = {
 		build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
 	}
 }
-
-vim.cmd.colorscheme("habamax")
 
 require('lazy').setup(plugins, {})
