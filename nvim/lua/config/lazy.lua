@@ -16,15 +16,13 @@ local fn = vim.fn
 local plugins = {
 
 	'folke/zen-mode.nvim',
-	'folke/neodev.nvim',
 	'nvim-tree/nvim-web-devicons', -- icons used by nerdfont
-	'williamboman/mason.nvim',
-	'williamboman/mason-lspconfig.nvim',
 	'theprimeagen/harpoon',
 	'tpope/vim-fugitive',
 	'folke/twilight.nvim', -- spotlight on the function that you are looking at, good on zenmode I guess?
-	'terrortylor/nvim-comment',
-	'j-hui/fidget.nvim', -- lil messages on the bottom when lsp loads something
+	'terrortylor/nvim-comment', -- this one works
+	-- 'numToStr/Comment.nvim', -- this one was on kickstart
+	{ 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
 	-- colorschemes
 	{
@@ -41,44 +39,136 @@ local plugins = {
 		-- {'rebelot/kanagawa.nvim', name = 'kanagawa' },
 		-- { 'aktersnurra/no-clown-fiesta.nvim', name = 'no-clown' },
 		-- {'EdenEast/nightfox.nvim', name = 'night-fox' },
-		-- { 'catppuccin/nvim',  name = 'catppuccin', },
+		{ 'catppuccin/nvim', name = 'catppuccin', },
 	},
 
 	{
 		'folke/which-key.nvim',
-		event = 'VeryLazy',
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
+		event = 'VimEnter',
+	},
+
+	{ -- Highlight, edit, and navigate code
+		'nvim-treesitter/nvim-treesitter',
+		build = ':TSUpdate',
+		opts = {
+			ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'go', 'css', 'javascript', 'scala' },
+			auto_install = true,
+			highlight = {
+				enable = true,
+				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
+				--  If you are experiencing weird indenting issues, add the language to
+				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
+				additional_vim_regex_highlighting = { 'ruby' },
+			},
+			indent = { enable = true, disable = { 'ruby' } },
+		},
+		config = function(_, opts)
+			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+
+			-- Prefer git instead of curl in order to improve connectivity in some environments
+			require('nvim-treesitter.install').prefer_git = true
+			-- @diagnostic disable-next-line: missing-fields
+			require('nvim-treesitter.configs').setup(opts)
+
+			-- There are additional nvim-treesitter modules that you can use to interact
+			-- with nvim-treesitter. You should go explore a few and see what interests you:
+			--
+			--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+			--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
 
-	{
-		'nvim-treesitter/nvim-treesitter', -- better highlighting
-		build = ':TSUpdate',
+	{ -- Collection of various small independent plugins/modules
+		'echasnovski/mini.nvim',
+		config = function()
+			-- Better Around/Inside textobjects
+			--
+			-- Examples:
+			--  - va)  - [V]isually select [A]round [)]paren
+			--  - yinq - [Y]ank [I]nside [N]ext [']quote
+			--  - ci'  - [C]hange [I]nside [']quote
+			require('mini.ai').setup { n_lines = 500 }
+
+			-- Add/delete/replace surroundings (brackets, quotes, etc.)
+			--
+			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+			-- - sd'   - [S]urround [D]elete [']quotes
+			-- - sr)'  - [S]urround [R]eplace [)] [']
+			require('mini.surround').setup()
+
+			-- Simple and easy statusline.
+			--  You could remove this setup call if you don't like it,
+			--  and try some other statusline plugin
+			local statusline = require 'mini.statusline'
+			-- set use_icons to true if you have a Nerd Font
+			statusline.setup { use_icons = vim.g.have_nerd_font }
+
+			-- You can configure sections in the statusline by overriding their
+			-- default behavior. For example, here we set the section for
+			-- cursor location to LINE:COLUMN
+			---@diagnostic disable-next-line: duplicate-set-field
+			statusline.section_location = function()
+				return '%2l:%-2v'
+			end
+
+			-- ... and there is more!
+			--  Check out: https://github.com/echasnovski/mini.nvim
+		end,
 	},
 
 	{
 		'nvim-telescope/telescope.nvim',
 		dependencies = { -- you can install ripgrep too (apt install ripgrep)
 			'nvim-lua/plenary.nvim',
+			{
+				'nvim-telescope/telescope-fzf-native.nvim',
+				build = 'make',
+				cond = function()
+					return vim.fn.executable('make') == 1
+				end,
+			},
+			{ 'nvim-telescope/telescope-ui-select.nvim' },
+			{
+				'nvim-tree/nvim-web-devicons',
+				enabled = vim.g.have_nerd_font
+			},
 			'sharkdp/fd', -- a opensource version of ´find´
-		}
+		},
 	},
 
 	-- LSP Support
-	{
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v3.x',
-		lazy = true,
-		config = false,
-	},
+	--	{
+	--		'VonHeikemen/lsp-zero.nvim',
+	--			branch = 'v3.x',
+	--			lazy = true,
+	--			config = false,
+	--	},
 
 	{
 		'neovim/nvim-lspconfig',
 		dependencies = {
-			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'williamboman/mason.nvim', config = true },
+			'hrsh7th/cmp-nvim-lsp',
+			'williamboman/mason-lspconfig.nvim',
+			'WhoIsSethDaniel/mason-tool-installer.nvim',
+			{ 'j-hui/fidget.nvim',       opts = {} }, -- lil messages on the bottom when lsp loads something
+			{ 'folke/neodev.nvim',       opts = {} },
+
 		}
+	},
+
+	{
+		'lewis6991/gitsigns.nvim',
+		opts = {
+			signs = {
+				add = { text = '+' },
+				change = { text = '~' },
+				delete = { text = '_' },
+				topdelete = { text = '‾' },
+				changedelete = { text = '~' },
+			},
+		},
 	},
 
 	-- Autocompletion

@@ -1,5 +1,14 @@
+-- if needed read the help menu with -> :h <option>
+
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+vim.opt.clipboard = 'unnamedplus'
+
+vim.opt.breakindent = true
+
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -12,7 +21,10 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 12
 vim.opt.colorcolumn = "80"
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
-vim.opt.updatetime = 50 -- possible performance loss, make it 1000 or 4000 if needed
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+vim.opt.inccommand = 'split'
