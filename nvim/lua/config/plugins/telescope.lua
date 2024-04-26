@@ -1,4 +1,23 @@
-require('telescope').setup({
+return {
+		'nvim-telescope/telescope.nvim',
+		dependencies = { -- you can install ripgrep too (apt install ripgrep)
+			'nvim-lua/plenary.nvim',
+			'nvim-telescope/telescope-ui-select.nvim',
+			'sharkdp/fd', -- a opensource version of find
+			{
+				'nvim-telescope/telescope-fzf-native.nvim',
+				build = 'make',
+				cond = function()
+					return vim.fn.executable('make') == 1
+				end,
+			},
+			{
+				'nvim-tree/nvim-web-devicons',
+				enabled = vim.g.have_nerd_font
+			},
+		},
+	config = function()
+		require('telescope').setup({
 	extensions = {
 		['ui-select'] = {
 			require('telescope.themes').get_dropdown(),
@@ -47,3 +66,6 @@ end, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>fn', function()
 	builtin.find_files { cwd = vim.fn.stdpath 'config' }
 end, { desc = '[F]ind [N]eovim files' })
+	end
+}
+

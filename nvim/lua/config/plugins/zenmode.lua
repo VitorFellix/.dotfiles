@@ -1,3 +1,6 @@
+return {
+	'folke/zen-mode.nvim',
+	config = function()
 require 'zen-mode'.setup {
 	opts = {
 		window = {
@@ -11,4 +14,5 @@ require 'zen-mode'.setup {
 	},
 	-- TODO: create a config to run ZenMode everytime I enter a file and to exit everytime I exit a file
 }
-
+	end
+}
