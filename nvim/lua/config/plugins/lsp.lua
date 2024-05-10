@@ -3,11 +3,19 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+        'nvim-java/nvim-java',
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
+		'nvim-java/lua-async-await',
+		'nvim-java/nvim-java-refactor',
+		'nvim-java/nvim-java-core',
+		'nvim-java/nvim-java-test',
+		'nvim-java/nvim-java-dap',
+		'mfussenegger/nvim-dap',
+		'MunifTanjim/nui.nvim',
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
@@ -23,12 +31,13 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities())
 
+		require("java").setup()
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"gopls",
+				"jdtls",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)

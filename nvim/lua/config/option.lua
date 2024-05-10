@@ -19,7 +19,7 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.scrolloff = 12
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
