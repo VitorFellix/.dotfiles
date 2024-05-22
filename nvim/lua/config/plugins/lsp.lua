@@ -3,24 +3,24 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-        'nvim-java/nvim-java',
+		"nvim-java/nvim-java",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
-		'nvim-java/lua-async-await',
-		'nvim-java/nvim-java-refactor',
-		'nvim-java/nvim-java-core',
-		'nvim-java/nvim-java-test',
-		'nvim-java/nvim-java-dap',
-		'mfussenegger/nvim-dap',
-		'MunifTanjim/nui.nvim',
+		"nvim-java/lua-async-await",
+		"nvim-java/nvim-java-refactor",
+		"nvim-java/nvim-java-core",
+		"nvim-java/nvim-java-test",
+		"nvim-java/nvim-java-dap",
+		"mfussenegger/nvim-dap",
+		"MunifTanjim/nui.nvim",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
-		'WhoIsSethDaniel/mason-tool-installer.nvim',
-		{ 'folke/neodev.nvim', opts = {} },
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		local cmp = require('cmp')
@@ -37,12 +37,19 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"jdtls",
+				"markdown_oxide",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup {
 						capabilities = capabilities
+					}
+				end,
+				["markdown_oxide"] = function()
+					capabilities.workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
 					}
 				end,
 				["lua_ls"] = function()
