@@ -37,6 +37,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
+				"jdtls",
 				"markdown_oxide",
 			},
 			handlers = {

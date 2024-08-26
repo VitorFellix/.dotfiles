@@ -3,7 +3,7 @@
 [profiles]
   [[default]]
     icon_bell = False
-    background_color = "#2a292b"
+    background_color = "#110f12"
     cursor_color = "#ffffff"
     foreground_color = "#ffffff"
     show_titlebar = False
