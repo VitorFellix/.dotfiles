@@ -3,13 +3,7 @@ return {
 	{ 'folke/tokyonight.nvim',            name = 'tokyonight' },
 	{ 'rebelot/kanagawa.nvim',            name = 'kanagawa' },
 	{ 'aktersnurra/no-clown-fiesta.nvim', name = 'no-clown' },
-	{
-		'EdenEast/nightfox.nvim',
-		name = 'night-fox',
-		config = function()
-			vim.cmd("colorscheme terafox")
-		end,
-	},
-	{ 'catppuccin/nvim', name = 'catppuccin', },
-
+	{ 'savq/melange-nvim',                name = 'melange' },
+	{ 'EdenEast/nightfox.nvim',           name = 'night-fox' },
+	{ 'catppuccin/nvim',                  name = 'catppuccin' },
 }
