@@ -19,8 +19,19 @@ ln -s ~/.dotfiles/config/tmux.config ~/.tmux.conf
 echo 'added link for tmux'
 
 rm -rf ~/.config/i3/config
+mkdir ~/.config/i3
 ln -s ~/.dotfiles/config/i3.config ~/.config/i3/config
 echo 'added link for i3'
+
+rm -rf ~/.config/i3status/config
+mkdir ~/.config/i3status
+ln -s ~/.dotfiles/config/i3status.config ~/.config/i3status/config
+echo 'added link for i3status'
+
+rm -rf ~/.config/picom/config
+mkdir ~/.config/picom
+ln -s ~/.dotfiles/config/picom.config ~/.config/picom/config
+echo 'added link for picom'
 
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
@@ -28,7 +39,7 @@ echo 'added link for nvim'
 
 rm -rf ~/.config/kitty
 mkdir ~/.config/kitty
-ln -s ~/.dotfiles/config/kitty.config ~/.config/kitty/kitty.config
+ln -s ~/.dotfiles/config/kitty.config ~/.config/kitty/kitty.conf
 echo 'added link for kitty'
 
 # rm ~/.config/terminator/config
