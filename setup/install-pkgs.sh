@@ -1,13 +1,13 @@
 #!/bin/bash
 
 echo 'installing packages'
-yum install tmux i3 neovim curl git
+# yum install tmux i3 neovim curl git
 
 # sets bash as the default shell 
 chsh -s $(which bash)
 
 # TODO: check if path already exists before cloning
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo '[WARN] watch out! this script will remove your .bashrc file'
 rm ~/.bashrc
