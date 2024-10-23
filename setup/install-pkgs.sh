@@ -26,6 +26,11 @@ rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 echo 'added link for nvim'
 
+rm -rf ~/.config/kitty
+mkdir ~/.config/kitty
+ln -s ~/.dotfiles/config/kitty.config ~/.config/kitty/kitty.config
+echo 'added link for kitty'
+
 # rm ~/.config/terminator/config
 # ln -s ~/.dotfiles/config/terminator ~/.config/terminator/config
 # echo 'added link for ~/.config/terminator/config'
