@@ -4,3 +4,4 @@ wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/do
 && rm JetBrainsMono.zip \
 && fc-cache -fv
 && cd ~/
+sudo dnf install jetbrains-mono-fonts-all.noarch
