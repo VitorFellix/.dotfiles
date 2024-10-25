@@ -40,7 +40,8 @@ echo 'added link for nvim'
 rm -rf ~/.config/kitty
 mkdir ~/.config/kitty
 ln -s ~/.dotfiles/config/kitty.config ~/.config/kitty/kitty.conf
-echo 'added link for kitty'
+ln -s ~/.dotfiles/config/kitty-launch.config ~/.config/kitty/kitty-launch.config
+echo 'added links for kitty'
 
 # rm ~/.config/terminator/config
 # ln -s ~/.dotfiles/config/terminator ~/.config/terminator/config
