@@ -6,4 +6,5 @@ return {
 	{ 'savq/melange-nvim',                name = 'melange' },
 	{ 'EdenEast/nightfox.nvim',           name = 'night-fox' },
 	{ 'catppuccin/nvim',                  name = 'catppuccin' },
+	{ 'morhetz/gruvbox',                  name = 'gruvbox' },
 }
