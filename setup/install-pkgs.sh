@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 if [[ $(whoami) != root ]]; then
@@ -19,11 +18,25 @@ elif [[ $OS == 'fedora' ]]; then
 	PKG_MANAGER='yum'
 fi
 
-echo 'installing packages with'
-echo "[RUN] \$ $PKG_MANAGER install flatpak tmux i3 picom neovim curl git bash"
-$PKG_MANAGER install flatpak tmux i3 picom neovim curl git bash
-echo "[RUN] \$ flatpak install spotify discord obsidian google-chrome"
-flatpak install spotify discord obsidian google-chrome
+echo 'installing packages'
+
+echo "[RUN] \$ $PKG_MANAGER install"
+$PKG_MANAGER install curl git bash flatpak fnt i3 picom tmux neovim
+echo "[DONE] \$ $PKG_MANAGER install"
+
+read -p "Install flatpak packages: [y/n] " ANSWER
+if [[ $ANSWER == "y" ]]; then
+	echo "[RUN] \$ flatpak install"
+	flatpak install spotify discord obsidian google-chrome
+	echo "[DONE] \$ flatpak install"
+fi
+
+read -p "Install fonts with fnt: [y/n] " ANSWER
+if [[ $ANSWER == "y" ]]; then
+	echo "[RUN] \$ fnt install"
+	fnt install jost inter jetbrainsmono
+	echo "[DONE] \$ fnt install"
+fi
 
 # sets bash as the default shell if not bash
 if [[ $(echo $0) != bash ]]; then
@@ -34,9 +47,7 @@ fi
 
 echo 'linking config from .dotfiles to system .config'
 echo '[WARN] watch out! this script will remove your .config files'
-
 read -p "Want to continue and link files: [y/n] " ANSWER
-
 if [[ $ANSWER == "y" ]]; then
 	rm ~/.bashrc
 	ln -s ~/.dotfiles/config/bashrc.config ~/.bashrc
@@ -77,4 +88,4 @@ if [[ $ANSWER == "y" ]]; then
 fi
 
 echo '[INFO] to install tmux plugins use: <prefix+I>' 
-echo 'finished'
+echo '[DONE]'
