@@ -1,8 +1,0 @@
-wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip \
-&& cd ~/.local/share/fonts \
-&& unzip JetBrainsMono.zip \
-&& rm JetBrainsMono.zip \
-&& fc-cache -fv
-&& cd ~/
-sudo dnf install jetbrains-mono-fonts-all.noarch
-sudo apt install fonts-jetbrains-mono
