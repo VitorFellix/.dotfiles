@@ -27,13 +27,14 @@ echo "[DONE] \$ $PKG_MANAGER install"
 read -p "Install flatpak packages: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
 	echo "[RUN] \$ flatpak install"
-	flatpak install spotify discord obsidian google-chrome
+	flatpak install com.spotify.Client com.discordapp.Discord md.obsidian.Obsidian com.google.Chrome -y
 	echo "[DONE] \$ flatpak install"
 fi
 
 read -p "Install fonts with fnt: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
 	echo "[RUN] \$ fnt install"
+	fnt update
 	fnt install jost inter jetbrainsmono
 	echo "[DONE] \$ fnt install"
 fi
