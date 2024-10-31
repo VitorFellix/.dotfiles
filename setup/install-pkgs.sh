@@ -88,5 +88,19 @@ if [[ $ANSWER == "y" ]]; then
 	echo 'added links for kitty'
 fi
 
+read -p "Want to install betterlockscreen and i3lock-color: [y/n] " ANSWER
+if [[ $ANSWER == "y" ]]; then
+ 	echo "[RUN] installing betterlockscreen"
+	wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | bash -s user
+ 	
+	echo "[RUN] installing i3lock-color"
+	git clone https://github.com/Raymo111/i3lock-color.git /tmp/i3lock-color
+	cd /tmp/i3lock-color
+	if [[ -f install-i3lock-color.sh ]]; then
+		./install-i3lock-color.sh
+	fi
+	cd -
+fi
+
 echo '[INFO] to install tmux plugins use: <prefix+I>' 
 echo '[DONE]'
