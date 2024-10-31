@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 # variables :)
 HOSTNAME_PERSONAL=fedora
