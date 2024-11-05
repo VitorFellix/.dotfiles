@@ -5,6 +5,7 @@ set -e
 declare -A apps;
 apps[discord]='/var/lib/flatpak/app/com.discordapp.Discord/current/active/export/bin/com.discordapp.Discord'
 apps[obsidian]='/var/lib/flatpak/app/md.obsidian.Obsidian/current/active/export/bin/md.obsidian.Obsidian'
+apps[teams]='/var/lib/flatpak/app/com.github.IsmaelMartinez.teams_for_linux/current/active/export/bin/com.github.IsmaelMartinez.teams_for_linux'
 apps[spotify]='/var/lib/flatpak/app/com.spotify.Client/current/active/export/bin/com.spotify.Client'
 
 # echo "${apps[@]}"		# shows values

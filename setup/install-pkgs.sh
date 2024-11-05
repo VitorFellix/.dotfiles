@@ -21,7 +21,7 @@ fi
 echo 'installing packages'
 
 echo "[RUN] \$ $PKG_MANAGER install"
-$PKG_MANAGER install curl git bash flatpak fnt i3 picom tmux neovim
+$PKG_MANAGER install curl git bash flatpak i3 picom tmux neovim
 echo "[DONE] \$ $PKG_MANAGER install"
 
 read -p "Install flatpak packages: [y/n] " ANSWER
@@ -92,6 +92,8 @@ read -p "Want to install betterlockscreen and i3lock-color: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
  	echo "[RUN] installing betterlockscreen"
 	wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | bash -s user
+	
+	sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
  	
 	echo "[RUN] installing i3lock-color"
 	git clone https://github.com/Raymo111/i3lock-color.git /tmp/i3lock-color
@@ -104,3 +106,4 @@ fi
 
 echo '[INFO] to install tmux plugins use: <prefix+I>' 
 echo '[DONE]'
+get dependencies for betterlockscreen
