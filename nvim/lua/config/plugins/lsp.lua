@@ -36,9 +36,9 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				"markdown_oxide",
 				"lua_ls",
 				"jdtls",
-				"markdown_oxide",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -79,9 +79,9 @@ return {
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
-				['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-				['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-				['<C-y>'] = cmp.mapping.confirm({ select = true }),
+				['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+				['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+				['<C-l>'] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
@@ -95,10 +95,10 @@ return {
 		vim.diagnostic.config({
 			-- update_in_insert = true,
 			float = {
+				source = true,
 				focusable = false,
 				style = "minimal",
 				border = "rounded",
-				source = "always",
 				header = "",
 				prefix = "",
 			},

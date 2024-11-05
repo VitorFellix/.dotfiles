@@ -29,4 +29,4 @@ vim.opt.timeoutlen = 300
 vim.opt.inccommand = 'split'
 
 
-vim.cmd.colorscheme 'carbonfox'
+vim.cmd.colorscheme 'gruvbox'
