@@ -16,13 +16,13 @@ if [[ $(hostname) == "$HOSTNAME_PERSONAL" ]]; then
 	xrdb -merge ~/.Xresources
 	cat ~/.Xresources
 	
-	if [[ $PRIMARY_MONITOR == "DP-0" ]]; then
+	if [[ $PRIMARY_MONITOR == "DP-1" ]]; then
 		echo "Monitor=[${PRIMARY_MONITOR}]"
 		xrandr --output $PRIMARY_MONITOR --auto --dpi $DPI1 --primary
 	fi
 	
 	# maybe the dpi is 92 too, must test
-	if [[ $SECONDARY_MONITOR == "HDMI-1" ]]; then
+	if [[ $SECONDARY_MONITOR == "HDMI-2" ]]; then
 		echo "Monitor=[${SECONDARY_MONITOR}]"
 		xrandr --output $SECONDARY_MONITOR --auto --below $PRIMARY_MONITOR --dpi $DPI1
 	fi

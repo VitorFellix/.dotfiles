@@ -41,5 +41,6 @@ if [[ $ANSWER == "y" ]]; then
 	mkdir ~/.config/kitty
 	ln -s ~/.dotfiles/config/kitty.config ~/.config/kitty/kitty.conf
 	ln -s ~/.dotfiles/config/kitty-launch.config ~/.config/kitty/kitty-launch.config
+	ln -s ~/.dotfiles/config/kitty-colorscheme.config ~/.config/kitty/kitty-colorscheme.config
 	echo 'added links for kitty'
 fi

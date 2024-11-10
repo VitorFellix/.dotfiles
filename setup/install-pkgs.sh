@@ -2,9 +2,9 @@
 set -e
 
 echo "[RUN] \$ $PKG_MANAGER install"
-sudo dnf install curl git bash flatpak i3 picom tmux neovim kitty
+sudo dnf install flatpak i3 picom tmux neovim kitty rofi redshift thunar
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-sudo dnf config-manager --enable fedora-cisco-openh264 -y
+# sudo dnf config-manager --enable fedora-cisco-openh264 -y
 sudo dnf install steam -y
 echo "[DONE] \$ $PKG_MANAGER install"
 
@@ -52,4 +52,17 @@ if [[ $ANSWER == "y" ]]; then
 fi
 
 echo '[INFO] to install tmux plugins use: <prefix+I>' 
+
+echo '[INFO] please run the following scripts:'
+echo '	1. set-resolution.sh'
+echo '	2. set-flatpak-links.sh'
+echo '	3. set-links.sh'
+echo '	4. set-capslock.sh'
+
+./set-resolution.sh
+./set-flatpak-links.sh
+./set-links.sh
+./set-capslock.sh
+
 echo '[DONE]'
+
