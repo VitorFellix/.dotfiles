@@ -43,4 +43,9 @@ if [[ $ANSWER == "y" ]]; then
 	ln -s ~/.dotfiles/config/kitty-launch.config ~/.config/kitty/kitty-launch.config
 	ln -s ~/.dotfiles/config/kitty-colorscheme.config ~/.config/kitty/kitty-colorscheme.config
 	echo 'added links for kitty'
+
+	rm -rf ~/.config/wezterm
+	mkdir ~/.config/wezterm
+	ln -s ~/.dotfiles/config/wezterm.lua ~/.config/wezterm/wezterm.lua
+	echo 'added links for wezterm'
 fi
