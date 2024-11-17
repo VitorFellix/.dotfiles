@@ -29,4 +29,4 @@ vim.opt.timeoutlen = 300
 vim.opt.inccommand = 'split'
 
 
-vim.cmd.colorscheme 'nordic'
+vim.cmd.colorscheme 'quiet'

@@ -2,13 +2,13 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.window_frame = {
-	font = wezterm.font { family = 'JetBrains Mono', weight = 'Bold' }
-}
+-- config.window_frame = {
+-- 	font = wezterm.font { family = 'JetBrains Mono', weight = 'Bold' }
+-- }
 
 config.font = wezterm.font 'JetBrains Mono'
 
-config.color_scheme = 'nightfox'
+-- config.color_scheme = 'nightfox'
 
 config.use_fancy_tab_bar = false
 
