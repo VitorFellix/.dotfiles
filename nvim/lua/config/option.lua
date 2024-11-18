@@ -28,5 +28,6 @@ vim.opt.timeoutlen = 300
 
 vim.opt.inccommand = 'split'
 
+vim.opt.swapfile = false
 
 vim.cmd.colorscheme 'quiet'
