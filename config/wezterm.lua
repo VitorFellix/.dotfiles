@@ -17,10 +17,10 @@ config.tab_max_width = 12
 config.use_resize_increments = true
 
 config.window_padding = {
-	left = 8,
-	right = 8,
-	top = 8,
-	bottom = 0,
+	left = 12,
+	right = 12,
+	top = 12,
+	bottom = 12,
 }
 
 -- config.background = {
