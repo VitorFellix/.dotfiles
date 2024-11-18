@@ -14,6 +14,8 @@ config.use_fancy_tab_bar = false
 
 config.tab_max_width = 12
 
+config.use_resize_increments = true
+
 config.window_padding = {
 	left = 8,
 	right = 8,
