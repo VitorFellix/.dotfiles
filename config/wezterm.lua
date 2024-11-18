@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 -- 	font = wezterm.font { family = 'JetBrains Mono', weight = 'Bold' }
 -- }
 
-config.font = wezterm.font 'JetBrains Mono'
+config.font = wezterm.font 'JetBrainsMono NL Nerd Font Mono'
 
 -- config.color_scheme = 'nightfox'
 
