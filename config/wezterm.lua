@@ -6,15 +6,20 @@ local config = wezterm.config_builder()
 -- 	font = wezterm.font { family = 'JetBrains Mono', weight = 'Bold' }
 -- }
 
-config.font = wezterm.font 'JetBrainsMono NL Nerd Font Mono'
+-- config.font = wezterm.font 'JetBrainsMono NL Nerd Font Mono'
+config.font = wezterm.font 'monospace'
 
--- config.color_scheme = 'nightfox'
+config.font_size = 10
+
+config.color_scheme = 'Ayu Dark (Gogh)'
 
 config.use_fancy_tab_bar = false
 
 config.tab_max_width = 12
 
-config.use_resize_increments = true
+config.hide_tab_bar_if_only_one_tab = true
+
+config.use_resize_increments = false
 
 config.window_padding = {
 	left = 12,
