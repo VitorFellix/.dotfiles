@@ -30,4 +30,4 @@ vim.opt.inccommand = 'split'
 
 vim.opt.swapfile = false
 
-vim.cmd.colorscheme 'nightfox'
+vim.cmd.colorscheme('ayu-dark')
