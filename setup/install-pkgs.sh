@@ -1,35 +1,38 @@
 #!/bin/bash
+
 set -e
 
-echo "[RUN] \$ $PKG_MANAGER install"
-sudo dnf install flatpak i3 picom tmux neovim kitty rofi redshift thunar
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-# sudo dnf config-manager --enable fedora-cisco-openh264 -y
-sudo dnf install steam -y
+PKGS="flatpak tmux neovim rofi redshift dolphin wezterm shotwell gparted htop"
+
+read -p "Are you running fedora or debian? [f/d]" ANSWER
+if [[ $ANSWER == "f" ]]; then
+	echo "[RUN] \$ sudo dnf install ${PKGS} steam loupe "
+	sudo dnf install ${PKGS}
+	sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+	# sudo $PKG_MANAGER config-manager --enable fedora-cisco-openh264 -y
+	sudo dnf install steam -y
+elif [[ $ANSWER == "d" ]]; then
+	echo "[RUN] \$ sudo apt install ${PKGS}"
+	sudo apt install ${PKGS}
+else
+	echo "Please give a valid response option"
+	exit 1
+fi
 echo "[DONE] \$ $PKG_MANAGER install"
 
 read -p "Install flatpak packages: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
-	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	echo "[RUN] \$ flatpak install"
-	# TODO: add flathub repo before installing
-	flatpak install com.spotify.Client com.discordapp.Discord md.obsidian.Obsidian com.google.Chrome -y
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	flatpak install -y com.spotify.Client com.discordapp.Discord md.obsidian.Obsidian com.google.Chrome
 	echo "[DONE] \$ flatpak install"
 fi
-
-# read -p "Install fonts with fnt: [y/n] " ANSWER
-# if [[ $ANSWER == "y" ]]; then
-# 	echo "[RUN] \$ fnt install"
-# 	fnt update
-# 	fnt install jost inter jetbrainsmono
-# 	echo "[DONE] \$ fnt install"
-# fi
 
 # sets bash as the default shell if not bash
 read -p "Change default shell to bash: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
-	echo "default shell is $0, changing it to bash"
 	echo '[RUN] $ chsh -s bash'
+	echo "default shell is $0, changing it to bash"
 	chsh -s $(which bash)
 fi
 
@@ -59,10 +62,10 @@ echo '	2. set-flatpak-links.sh'
 echo '	3. set-links.sh'
 echo '	4. set-capslock.sh'
 
-./set-resolution.sh
-./set-flatpak-links.sh
-./set-links.sh
-./set-capslock.sh
+# ./set-resolution.sh
+# ./set-flatpak-links.sh
+# ./set-links.sh
+# ./set-capslock.sh
 
 echo '[DONE]'
-
+exit 0

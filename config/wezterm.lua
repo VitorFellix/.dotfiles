@@ -2,26 +2,27 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
--- config.font = wezterm.font 'JetBrainsMono NL Nerd Font Mono'
--- config.font = wezterm.font 'monospace'
+config = {
+	color_scheme = 'Ayu Dark (Gogh)',
 
-config.font_size = 10
+	freetype_load_flags = 'NO_HINTING',
+	freetype_load_target = 'Normal',
+	front_end = "OpenGL",
 
-config.color_scheme = 'Ayu Dark (Gogh)'
+	use_fancy_tab_bar = false,
+	tab_max_width = 40,
+	hide_tab_bar_if_only_one_tab = true,
 
-config.use_fancy_tab_bar = false
+	line_height = 1.0,
+	font_size = 11.0,
 
-config.tab_max_width = 40
-
-config.hide_tab_bar_if_only_one_tab = true
-
-config.use_resize_increments = false
-
-config.window_padding = {
-	left = 12,
-	right = 12,
-	top = 12,
-	bottom = 12,
+	use_resize_increments = false,
+	window_padding = {
+		left = 4,
+		right = 4,
+		top = 4,
+		bottom = 4,
+	}
 }
 
 return config

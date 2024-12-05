@@ -7,7 +7,7 @@ echo '[WARN] watch out! this script will remove your .config files'
 read -p "bashrc link: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
 	rm -rf ~/.bashrc
-	ln -s ~/.dotfiles/config/bashrc.config ~/.bashrc
+	ln -s ~/.dotfiles/config/bashrc ~/.bashrc
 	echo 'added link for .bashrc'
 fi
 
@@ -22,45 +22,35 @@ if [[ $ANSWER == "y" ]]; then
 	echo 'added link for tmux'
 fi
 	
-read -p "i3 link: [y/n] " ANSWER
+read -p "i3 and picom link: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
 	rm -rf ~/.config/i3
-	mkdir ~/.config/i3
+	mkdir -p ~/.config/i3
 	ln -s ~/.dotfiles/config/i3.config ~/.config/i3/config
 	echo 'added link for i3'
 	
 	rm -rf ~/.config/i3status
-	mkdir ~/.config/i3status
+	mkdir -p ~/.config/i3status
 	ln -s ~/.dotfiles/config/i3status.config ~/.config/i3status/config
 	echo 'added link for i3status'
 	
 	rm -rf ~/.config/picom
-	mkdir ~/.config/picom
+	mkdir -p ~/.config/picom
 	ln -s ~/.dotfiles/config/picom.config ~/.config/picom/config
 	echo 'added link for picom'
 fi
 	
-read -p "nvim link: [y/n] " ANSWER
+read -p "neovim link: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
 	rm -rf ~/.config/nvim
 	ln -s ~/.dotfiles/nvim ~/.config/nvim
 	echo 'added link for nvim'
 fi
-	
-read -p "kitty link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.config/kitty
-	mkdir ~/.config/kitty
-	ln -s ~/.dotfiles/config/kitty.config ~/.config/kitty/kitty.conf
-	ln -s ~/.dotfiles/config/kitty-launch.config ~/.config/kitty/kitty-launch.config
-	ln -s ~/.dotfiles/config/kitty-colorscheme.config ~/.config/kitty/kitty-colorscheme.config
-	echo 'added links for kitty'
-fi
 
 read -p "wezterm link: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
 	rm -rf ~/.config/wezterm
-	mkdir ~/.config/wezterm
+	mkdir -p ~/.config/wezterm
 	ln -s ~/.dotfiles/config/wezterm.lua ~/.config/wezterm/wezterm.lua
 	echo 'added links for wezterm'
 fi

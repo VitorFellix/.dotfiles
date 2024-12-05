@@ -1,0 +1,82 @@
+# .bashrc
+
+# Defaul bash
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific binaries path
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Environment
+export HISTSIZE=5000
+export EDITOR=nvim
+
+# Colors
+RESET="\x01\e[0m\x02" 
+BOLD="\x01\e[1m\x02"
+COLOR_RESET='\e[0m'
+COLOR_BLACK='\e[0;30m'
+COLOR_GRAY='\e[1;30m'
+COLOR_WHITE='\e[1;37m'
+COLOR_RED='\e[0;31m'
+COLOR_LIGHT_RED='\e[1;31m'
+COLOR_GREEN='\e[0;32m'
+COLOR_LIGHT_GREEN='\e[1;32m'
+COLOR_BROWN='\e[0;33m'
+COLOR_YELLOW='\e[1;33m'
+COLOR_BLUE='\e[0;34m'
+COLOR_LIGHT_BLUE='\e[1;34m'
+COLOR_PURPLE='\e[0;35m'
+COLOR_LIGHT_PURPLE='\e[1;35m'
+COLOR_CYAN='\e[0;36m'
+COLOR_LIGHT_CYAN='\e[1;36m'
+COLOR_LIGHT_GRAY='\e[0;37m'
+
+# number of trailing dirs on prompt
+export PROMPT_DIRTRIM=2
+
+dir() {
+	echo -e "\[$BOLD$COLOR_BLUE\w$RESET$COLOR_RESET\]"
+}
+
+user_and_host() {
+	local user="${COLOR_GREEN}\u${COLOR_RESET}"
+	local host="${COLOR_YELLOW}\h${COLOR_RESET}"
+	echo -e "\[${user}@${host}\]"
+}
+
+prev_command() {
+	local color="$([ "$exit_code" -eq 0 ] && echo "$COLOR_RESET" || echo "$COLOR_RED")"
+	echo -e "\[$color\]"
+}
+
+reset() {
+	echo -e "\[$RESET$COLOR_RESET\]"
+}
+
+PROMPT_COMMAND='
+	exit_code=$?
+	PS1="[$(user_and_host)] "
+	PS1+="$(dir) "
+	PS1+="$(prev_command)"
+	PS1+="$ "
+	PS1+="$(reset)"
+'
+
+alias lsc="ls -xogskhtr --color"
+alias setbg="feh --no-fehbg --bg-fill"
+alias wezterm='flatpak run org.wezfurlong.wezterm'
+
+# Git
+alias ga="git add"
+alias gs="git status"
+alias gp="git push"
+alias gc="git checkout"
+alias gd="git diff"
+alias gr="git restore"
+alias grs="git restore --staged"
+alias gcm="git commit -m"
