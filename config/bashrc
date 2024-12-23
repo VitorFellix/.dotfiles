@@ -18,7 +18,7 @@ export EDITOR=nvim
 # Number of trailing dirs on prompt
 export PROMPT_DIRTRIM=2
 
-PS1="[\u@\h] \W$ "
+PS1="[\u@\h] \w $ "
 
 # Basic
 alias lsc="ls -xogskhtr --color"
