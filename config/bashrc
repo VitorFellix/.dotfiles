@@ -12,7 +12,7 @@ fi
 export PATH
 
 # Environment
-export HISTSIZE=5000
+export HISTSIZE=10000
 export EDITOR=nvim
 
 # Colors
@@ -44,15 +44,15 @@ dir() {
 }
 
 user_and_host() {
-	local user="${COLOR_GREEN}\u${COLOR_RESET}"
-	local host="${COLOR_YELLOW}\h${COLOR_RESET}"
-	echo -e "\[${user}@${host}\]"
+	local user="\u"
+	local host="\h"
+	echo -e "[${COLOR_GREEN}\[${user}@${host}\]${COLOR_RESET}]"
 }
 
-prev_command() {
-	local color="$([ "$exit_code" -eq 0 ] && echo "$COLOR_RESET" || echo "$COLOR_RED")"
-	echo -e "\[$color\]"
-}
+# prev_command() {
+# 	local color="$([ "$exit_code" -eq 0 ] && echo "$COLOR_RESET" || echo "$COLOR_RED")"
+# 	echo -e "\[$color\]"
+# }
 
 reset() {
 	echo -e "\[$RESET$COLOR_RESET\]"
@@ -60,16 +60,13 @@ reset() {
 
 PROMPT_COMMAND='
 	exit_code=$?
-	PS1="[$(user_and_host)] "
+	PS1="$(user_and_host) "
 	PS1+="$(dir) "
-	PS1+="$(prev_command)"
 	PS1+="$ "
-	PS1+="$(reset)"
 '
 
+# Basic
 alias lsc="ls -xogskhtr --color"
-alias setbg="feh --no-fehbg --bg-fill"
-alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 # Git
 alias ga="git add"
@@ -80,3 +77,5 @@ alias gd="git diff"
 alias gr="git restore"
 alias grs="git restore --staged"
 alias gcm="git commit -m"
+
+neofetch

@@ -3,18 +3,14 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config = {
-	color_scheme = 'Ayu Dark (Gogh)',
-
-	freetype_load_flags = 'NO_HINTING',
-	freetype_load_target = 'Normal',
-	front_end = "OpenGL",
+	-- color_scheme = 'Andromeda',
 
 	use_fancy_tab_bar = false,
 	tab_max_width = 40,
 	hide_tab_bar_if_only_one_tab = true,
 
 	line_height = 1.0,
-	font_size = 11.0,
+	font_size = 12.0,
 
 	use_resize_increments = false,
 	window_padding = {
