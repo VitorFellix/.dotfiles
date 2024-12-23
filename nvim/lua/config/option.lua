@@ -30,4 +30,6 @@ vim.opt.inccommand = 'split'
 
 vim.opt.swapfile = false
 
-vim.cmd.colorscheme('ayu-dark')
+vim.cmd.syntax('on')
+vim.cmd('set background=dark')
+vim.cmd.colorscheme('nordic')

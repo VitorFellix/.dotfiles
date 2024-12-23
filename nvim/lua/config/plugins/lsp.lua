@@ -35,10 +35,17 @@ return {
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
+			automatic_installation = true,
 			ensure_installed = {
-				"markdown_oxide",
+				"grammarly",
+				"ast_grep",
+				"jsonls",
+				"lemminx",
+				"intelephense",
 				"lua_ls",
 				"jdtls",
+				"dockerls",
+				"bashls",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
