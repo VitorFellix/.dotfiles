@@ -18,7 +18,7 @@ export EDITOR=nvim
 # Number of trailing dirs on prompt
 export PROMPT_DIRTRIM=2
 
-PS1="[\u@\h] \w $ "
+PS1='[\u@\h] \w $ '
 
 # Basic
 alias lsc="ls -xogskhtr --color"
@@ -34,4 +34,11 @@ alias grs="git restore --staged"
 alias gcm="git commit -m"
 
 # On Start
-neofetch
+if [[ $- != *i* ]]; then
+	# Is interactive
+    return;
+else
+    if [ -x /usr/bin/neofetch ]; then
+        neofetch
+    fi
+fi
