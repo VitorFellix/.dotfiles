@@ -10,7 +10,7 @@ config = {
 	hide_tab_bar_if_only_one_tab = true,
 
 	line_height = 1.0,
-	font_size = 12.0,
+	font_size = 10.0,
 
 	use_resize_increments = false,
 	window_padding = {

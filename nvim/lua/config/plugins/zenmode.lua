@@ -4,11 +4,11 @@ return {
 		require 'zen-mode'.setup {
 			opts = {
 				window = {
-					backdrop = 1, -- defines the color of the background, makes it blacker, 1 is default color
+					backdrop = 2, -- defines the color of the background, makes it blacker, 1 is default color
 					options = {
 						number = true,
 						relativenumber = true,
-						signcolumn = 'no',
+						signcolumn = 'yes',
 					}
 				},
 			},
