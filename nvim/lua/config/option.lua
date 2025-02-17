@@ -30,6 +30,5 @@ vim.opt.inccommand = 'split'
 
 vim.opt.swapfile = false
 
-vim.cmd.syntax('on')
-vim.cmd('set background=dark')
-vim.cmd.colorscheme('nordic')
+vim.cmd("syntax off")
+vim.cmd("colorscheme kanagawa")
