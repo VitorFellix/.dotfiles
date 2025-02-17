@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKGS="tmux neovim redshift wezterm htop curl git"
+PKGS="tmux neovim redshift btop git ranger fastfetch"
 
 echo '[EXEC] installing packages'
 
