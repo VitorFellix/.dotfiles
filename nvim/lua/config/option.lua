@@ -30,5 +30,5 @@ vim.opt.inccommand = 'split'
 
 vim.opt.swapfile = false
 
-vim.cmd("syntax off")
+vim.cmd("syntax on")
 vim.cmd("colorscheme kanagawa")
