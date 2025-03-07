@@ -31,19 +31,17 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities())
 
-		-- require("java").setup()
+		require("java").setup({})
 		require("fidget").setup({})
-		require("mason").setup()
+		require("mason").setup({})
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
 			ensure_installed = {
 				"grammarly",
-				"ast_grep",
 				"jsonls",
 				"lemminx",
 				"intelephense",
 				"lua_ls",
-				"jdtls",
 				"dockerls",
 				"bashls",
 			},
@@ -74,21 +72,6 @@ return {
 						}
 					}
 				end,
-				["jdtls"] = function()
-					require("lspconfig").jdtls.setup({
-						on_attach = function(client, bufnr)
-							local opts = { noremap = true, silent = true, buffer = bufnr }
-							vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-							vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-							vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-							vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-						end,
-						flags = {
-							debounce_text_changes = 150,
-						},
-						capabilities = require("cmp_nvim_lsp").default_capabilities()
-					})
-				end,
 			}
 		})
 
@@ -115,6 +98,7 @@ return {
 		})
 
 		vim.diagnostic.config({
+			virtual_text = false,
 			-- update_in_insert = true,
 			float = {
 				source = true,

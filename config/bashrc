@@ -21,9 +21,12 @@ export PROMPT_DIRTRIM=2
 # PS1='[\u@\h] \w $ '
 
 # Common
+alias aliases="cat $HOME/.bashrc | grep alias"
 alias lsc="ls -xogskhtr --color"
 alias dnfi="sudo dnf install -y"
 alias dnfr="sudo dnf remove -y"
+
+# Fetch
 alias ff="fastfetch"
 
 # Git
@@ -36,6 +39,11 @@ alias gd="git diff"
 alias gr="git restore"
 alias grs="git restore --staged"
 alias gcm="git commit -m"
+
+# File manager
+if which nnn >/dev/null 2>&1 ;then								# check if tmux is installed
+	source $HOME/.dotfiles/config/nnn.config
+fi
 
 # Tmux
 if which tmux >/dev/null 2>&1 ;then								# check if tmux is installed
@@ -58,3 +66,14 @@ else
     fi
 fi
 
+# Remove X11-specific variables
+unset XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+
+# Set Wayland variables
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
+export MOZ_ENABLE_WAYLAND=1  # Enable Wayland for Firefox
+export QT_QPA_PLATFORM=wayland  # Qt apps
+export SDL_VIDEODRIVER=wayland  # SDL games
+export GDK_SCALE=2  # For GTK apps
+export QT_SCALE_FACTOR=2  # For Qt apps

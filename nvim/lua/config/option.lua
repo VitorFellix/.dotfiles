@@ -1,7 +1,7 @@
 -- if needed read the help menu with -> :h <option>
 
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -31,4 +31,4 @@ vim.opt.inccommand = 'split'
 vim.opt.swapfile = false
 
 vim.cmd("syntax on")
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme nordic")
