@@ -36,6 +36,22 @@ if [[ $ANSWER == "y" ]]; then
 	echo '[DONE] added links for wezterm'
 fi
 
+read -p "hyprland and hyprpaper link: [y/n] " ANSWER
+if [[ $ANSWER == "y" ]]; then
+	rm -rf ~/.config/hypr/hyprpaper.conf
+	ln -s ~/.dotfiles/config/hyprpaper.config ~/.config/hypr/hyprpaper.conf
+	rm -rf ~/.config/hypr/hyprland.conf
+	ln -s ~/.dotfiles/config/hyprland.config ~/.config/hypr/hyprland.conf
+	echo '[DONE] added link for hyprland and hyprpaper'
+fi
+	
+read -p "sway link: [y/n] " ANSWER
+if [[ $ANSWER == "y" ]]; then
+	rm -rf ~/.config/sway/config
+	ln -s ~/.dotfiles/config/sway.config ~/.config/sway/config
+	echo '[DONE] added link for sway'
+fi
+
 read -p "i3 and picom link: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
 	rm -rf ~/.config/i3
