@@ -1,0 +1,140 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 14px;
+    min-height: 0;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar {
+    background-color: rgba(22, 22, 29, 0.95);
+    border-radius: 4px;
+    color: #c9c9d1;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#window {
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#workspaces {
+    border-radius: 3px;
+    background-color: #2a2a36;
+    margin: 5px 5px;
+    padding: 0px 5px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    color: #7a8fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background-color: rgba(122, 143, 255, 0.2);
+    border-radius: 3px;
+}
+
+#workspaces button.active {
+    color: #7a8fff;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background-color: #d67676;
+    color: #16161d;
+    border-radius: 3px;
+}
+
+/* Modules styling */
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#custom-launcher,
+#custom-power {
+    background-color: #2a2a36;
+    padding: 0px 12px;
+    margin: 5px 2px;
+    border-radius: 3px;
+    color: #c9c9d1;
+}
+
+/* Special module styling */
+
+#custom-launcher {
+    background-color: #7a8fff;
+    color: #16161d;
+    font-size: 18px;
+    margin-left: 5px;
+    padding: 0 12px;
+}
+
+#custom-power {
+    background-color: #d67676;
+    color: #16161d;
+    font-size: 18px;
+    margin-right: 5px;
+    padding: 0 12px;
+}
+
+#clock {
+    background-color: #44bb99;
+    color: #16161d;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#battery {
+    background-color: #2a2a36;
+    color: #c9c9d1;
+}
+
+#battery.warning {
+    color: #44bb99;
+}
+
+#battery.critical {
+    color: #d67676;
+}
+
+#cpu {
+    background-color: #2a2a36;
+    color: #c9c9d1;
+}
+
+#memory {
+    background-color: #2a2a36;
+    color: #c9c9d1;
+}
+
+#network {
+    background-color: #2a2a36;
+    color: #c9c9d1;
+}
+
+#pulseaudio {
+    background-color: #2a2a36;
+    color: #c9c9d1;
+}
+
+#tray {
+    padding: 0px 10px;
+}

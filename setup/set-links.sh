@@ -44,6 +44,15 @@ if [[ $ANSWER == "y" ]]; then
 	ln -s ~/.dotfiles/config/hyprland.config ~/.config/hypr/hyprland.conf
 	echo '[DONE] added link for hyprland and hyprpaper'
 fi
+
+read -p "waybar link: [y/n] " ANSWER
+if [[ $ANSWER == "y" ]]; then
+	rm -rf ~/.config/waybar/config.jsonc
+	ln -s ~/.dotfiles/config/waybar.config ~/.config/waybar/config.jsonc
+	rm -rf ~/.config/waybar/style.css
+	ln -s ~/.dotfiles/config/waybar-style.css ~/.config/waybar/style.css
+	echo '[DONE] added link for waybar'
+fi
 	
 read -p "sway link: [y/n] " ANSWER
 if [[ $ANSWER == "y" ]]; then
