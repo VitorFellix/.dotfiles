@@ -1,83 +1,45 @@
 #!/bin/bash
 
-echo '[EXEC] linking config from .dotfiles to system .config'
-echo '[WARN] watch out! this script will remove your .config files'
-	
-read -p "bashrc link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.bashrc
-	ln -s ~/.dotfiles/config/bashrc ~/.bashrc
-	echo '[DONE] added link for .bashrc'
-fi
+log_info() {
+	echo "INFO: $1"
+}
 
-read -p "tmux link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	# checks if dir does not exists
-	if [[ ! -d ~/.tmux/plugins/tpm ]]; then
-		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+log_warn() {
+	echo "WARN: $1"
+}
+
+log_info 'Set links script.'
+
+# $1 is link name
+# $2 is path to .config
+# $3 is path to config inside .dotfile/config
+createLink() {
+	local hook=$4
+
+	log_info "Should link configuration for $1"
+	read -p "[y/n] " ANSWER
+	if [[ $ANSWER == "y" ]]; then
+		eval $hook
+		eval "rm -rf $2"
+		eval "ln -s $3 $2"
+		log_info "Configuration for $1 finished." 
 	fi
-	rm -rf ~/.tmux.conf
-	ln -s ~/.dotfiles/config/tmux.config ~/.tmux.conf
-	echo '[DONE] added link for tmux'
-fi
-	
-read -p "neovim link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.config/nvim
-	ln -s ~/.dotfiles/nvim ~/.config/nvim
-	echo '[DONE] added link for nvim'
-fi
+}
 
-read -p "wezterm link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.config/wezterm
-	mkdir -p ~/.config/wezterm
-	ln -s ~/.dotfiles/config/wezterm.lua ~/.config/wezterm/wezterm.lua
-	echo '[DONE] added links for wezterm'
-fi
+createLink "bashrc" "~/.bashrc" "~/.dotfiles/config/bashrc"
 
-read -p "hyprland and hyprpaper link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.config/hypr/hyprpaper.conf
-	ln -s ~/.dotfiles/config/hyprpaper.config ~/.config/hypr/hyprpaper.conf
-	rm -rf ~/.config/hypr/hyprland.conf
-	ln -s ~/.dotfiles/config/hyprland.config ~/.config/hypr/hyprland.conf
-	echo '[DONE] added link for hyprland and hyprpaper'
-fi
+createLink "tmux" "~/.tmux.conf" "~/.dotfiles/config/tmux.config"
+createLink "neovim" "~/.config/nvim" "~/.dotfiles/nvim"
+createLink "fastfetch" "~/.config/fastfetch/config.jsonc" "~/.dotfiles/config/fastfetch.jsonc"
 
-read -p "waybar link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.config/waybar/config.jsonc
-	ln -s ~/.dotfiles/config/waybar.config ~/.config/waybar/config.jsonc
-	rm -rf ~/.config/waybar/style.css
-	ln -s ~/.dotfiles/config/waybar-style.css ~/.config/waybar/style.css
-	echo '[DONE] added link for waybar'
-fi
-	
-read -p "sway link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.config/sway/config
-	ln -s ~/.dotfiles/config/sway.config ~/.config/sway/config
-	echo '[DONE] added link for sway'
-fi
+log_warn 'desktop specific configurations'
 
-read -p "i3 and picom link: [y/n] " ANSWER
-if [[ $ANSWER == "y" ]]; then
-	rm -rf ~/.config/i3
-	mkdir -p ~/.config/i3
-	ln -s ~/.dotfiles/config/i3.config ~/.config/i3/config
-	echo '[DONE] added link for i3'
-	
-	rm -rf ~/.config/i3status
-	mkdir -p ~/.config/i3status
-	ln -s ~/.dotfiles/config/i3status.config ~/.config/i3status/config
-	echo '[DONE] added link for i3status'
-	
-	rm -rf ~/.config/picom
-	mkdir -p ~/.config/picom
-	ln -s ~/.dotfiles/config/picom.config ~/.config/picom/config
-	echo '[DONE] added link for picom'
-fi
+createLink "wezterm" "~/.config/wezterm/wezterm.lua" "~/.dotfiles/config/wezterm.lua" 'mkdir -p ~/.config/wezterm'
+createLink "waybar" "~/.config/waybar/config.jsonc" "~/.dotfiles/config/waybar.jsonc"
+createLink "waybar style" "~/.config/waybar/style.css" "~/.dotfiles/config/waybar-style.css"
+createLink "i3" "~/.config/i3/config" "~/.dotfiles/config/i3.config" 'mkdir -p ~/.config/i3'
+createLink "i3status" "~/.config/i3status/config" "~/.dotfiles/config/i3status.config" 'mkdir -p ~/.config/i3status'
+createLink "picom" "~/.config/picom/config" "~/.dotfiles/config/picom.config" 'mkdir -p ~/.config/picom'
 
-echo '[DONE] linking config from .dotfiles to system .config'
+log_info 'finished'
 exit 0
