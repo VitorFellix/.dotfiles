@@ -44,7 +44,6 @@ return {
 				"lua_ls",
 				"dockerls",
 				"bashls",
-				"hyprls",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
@@ -99,7 +98,7 @@ return {
 		})
 
 		vim.diagnostic.config({
-			virtual_text = false,
+			virtual_text = true,
 			-- update_in_insert = true,
 			float = {
 				source = true,
