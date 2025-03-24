@@ -2,4 +2,4 @@
 
 set -e
 
-feh --no-fehbg --bg-fill --randomize ~/pictures/wallpapers
+feh --no-fehbg --bg-fill --randomize ~/Pictures/Wallpapers
