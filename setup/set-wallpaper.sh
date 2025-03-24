@@ -1,5 +1,9 @@
 #!/bin/bash
 
-set -e
-
-feh --no-fehbg --bg-fill --randomize ~/Pictures/Wallpapers
+if [ "$1" == "" ]; then
+	echo "no image provided, setting random image."
+	feh --no-fehbg --bg-fill --randomize ~/Pictures/Wallpapers
+else
+	echo "image provided: $1"
+	feh --no-fehbg --bg-fill --randomize "$1"
+fi
