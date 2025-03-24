@@ -39,7 +39,7 @@ elif [[ $(hostname) == "$HOSTNAME_WORK" ]]; then
 	fi
 	
 	if [[ $SECONDARY_MONITOR == "DisplayPort-1" ]]; then
-		echo "Monitor[${SECONDARY_MONITOR}]"
-		xrandr --output $SECONDARY_MONITOR --auto --right-of $PRIMARY_MONITOR --dpi $DPI2
+		echo "Monitor=[${SECONDARY_MONITOR}]"
+		xrandr --output $SECONDARY_MONITOR --auto --left-of $PRIMARY_MONITOR --dpi $DPI2
 	fi
 fi
