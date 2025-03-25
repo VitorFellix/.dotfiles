@@ -1,0 +1,126 @@
+* {
+    /* Rose Pine Colors */
+    base:      #191724;
+    surface:   #1f1d2e;
+    overlay:   #26233a;
+    muted:     #6e6a86;
+    subtle:    #908caa;
+    text:      #e0def4;
+    love:      #eb6f92;
+    gold:      #f6c177;
+    rose:      #ebbcba;
+    pine:      #31748f;
+    foam:      #9ccfd8;
+    iris:      #c4a7e7;
+
+    background-color:   @base;
+    text-color:         @text;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+}
+
+window {
+    background-color:   @base;
+    border:             2px;
+    border-color:       @pine;
+    border-radius:      4px;
+    width:              35%;
+}
+
+inputbar {
+    children:   [ prompt, entry ];
+    padding:		12px;
+    background-color: @surface;
+    border-radius: 4px;
+}
+
+prompt {
+    text-color: @text;
+    padding:    0px 6px 0px 0px;
+}
+
+entry {
+    placeholder:        "Search...";
+    text-color: @text;
+    placeholder-color:  @muted;
+}
+
+message {
+    padding:    10px;
+    border:     0px 0px 0px 0px;
+}
+
+listview {
+    lines:      3;
+    columns:    1;
+    scrollbar:  false;
+    padding:    8px;
+    background-color: @base;
+}
+
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-width: 8px;
+    handle-color: @pine;
+}
+
+element {
+    border-radius: 1px;
+}
+
+element normal.normal {
+    background-color: @base;
+    text-color:       @text;
+}
+
+element normal.urgent {
+    background-color: @love;
+    text-color:       @base;
+}
+
+element normal.active {
+    background-color: @iris;
+    text-color:       @base;
+}
+
+element selected.normal {
+    background-color: @pine;
+    text-color:       @text;
+}
+
+element selected.urgent {
+    background-color: @love;
+    text-color:       @base;
+}
+
+element selected.active {
+    background-color: @iris;
+    text-color:       @base;
+}
+
+element alternate.normal {
+    background-color: @base;
+    text-color:       @text;
+}
+
+element alternate.urgent {
+    background-color: @love;
+    text-color:       @base;
+}
+
+element alternate.active {
+    background-color: @iris;
+    text-color:       @base;
+}
+
+element-icon {
+    size:           1.0em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}
