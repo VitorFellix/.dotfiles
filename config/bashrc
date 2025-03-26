@@ -32,7 +32,7 @@ alias dnfi="sudo dnf install -y"
 alias dnfr="sudo dnf remove -y"
 
 # Fetch
-alias ff="fastfetch"
+alias ff='pyfiglet -s $(fastfetch -s os --format json | jq -r ".[0].result.name") && echo "" && fastfetch -l none && echo ""'
 
 # Git
 alias ga="git add"
@@ -55,7 +55,7 @@ if [[ $- != *i* ]] ;then						# is interactive
     return;										# don´t run it
 else
 	if which fastfetch >/dev/null 2>&1 ;then	# check if installed
-		fastfetch								# run fastfetch
+		ff
     fi
 fi
 
