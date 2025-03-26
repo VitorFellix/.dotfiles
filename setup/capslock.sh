@@ -17,6 +17,8 @@ chmod +x $FILE
 echo "file $FILE content"
 cat $FILE
 
+xmodmap $FILE
+
 echo 'done'
 
 
