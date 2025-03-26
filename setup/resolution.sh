@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 HOSTNAME_PERSONAL=fedora
 HOSTNAME_WORK=sim2996

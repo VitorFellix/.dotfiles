@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 declare -A apps;
 apps[discord]='/var/lib/flatpak/app/com.discordapp.Discord/current/active/export/bin/com.discordapp.Discord'
 apps[obsidian]='/var/lib/flatpak/app/md.obsidian.Obsidian/current/active/export/bin/md.obsidian.Obsidian'
