@@ -3,7 +3,8 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config = {
-	color_scheme = 'rose-pine-moon',
+	-- color_scheme = 'rose-pine-moon',
+	color_scheme = 'Kanagawa (Gogh)',
 	font = wezterm.font('IosevkaTerm Nerd Font Mono', { weight = 'Regular', italic = false }),
 
 	use_fancy_tab_bar = false,
