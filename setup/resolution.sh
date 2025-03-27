@@ -6,35 +6,39 @@ HOSTNAME_WORK=sim2996
 PRIMARY_MONITOR=$(xrandr | grep connected | grep -v disconnected | awk '{print $1}' | head -n 1)
 SECONDARY_MONITOR=$(xrandr | grep connected | grep -v disconnected | awk '{print $1}' | head -n 2 | tail -n 1)
 
-DPI1=120
-DPI2=162
+setMonitorResolution() {
+	MONITOR=$1
+	RESOLUTION=$2
+	REFRESH=$3
+	DPI=$4
+	EXTRA=$5
+
+	if [[ $MONITOR != "" ]]; then
+		echo "Executing xrandr."
+		XRANDR_COMMAND="xrandr --output $MONITOR --mode $RESOLUTION --refresh $REFRESH --dpi $DPI $EXTRA"
+		echo $XRANDR_COMMAND
+		eval $XRANDR_COMMAND
+	fi
+}
 
 if [[ $(hostname) == "$HOSTNAME_PERSONAL" ]]; then
-	echo "Detected=[Personal-Computer]"
+	echo "Setting resolution for home computer '$HOSTNAME_PERSONAL'."
 
-	cp ~/.dotfiles/config/.Xresources ~/.Xresources
+	echo "Copying .Xresources to home folder."
+	cp ~/.dotfiles/config/.Xresources-personal ~/.Xresources
 	xrdb -merge ~/.Xresources
 	cat ~/.Xresources
 
-	CMD_MONITOR="xrandr --output $PRIMARY_MONITOR --mode 3840x2160 --refresh 239.99 --dpi 137 --primary"
-	
-	echo $CMD_MONITOR
-
-	eval $CMD_MONITOR
+	setMonitorResolution "$PRIMARY_MONITOR" "3840x2160" "239.99" "137" "--primary"
 
 elif [[ $(hostname) == "$HOSTNAME_WORK" ]]; then
-	echo "Detected=[Work-Computer]"
+	echo "Setting resolution for work computer '$HOSTNAME_WORK'."
 
-	cat ~/.Xresources
+	echo "Copying .Xresources to home folder."
+	cp ~/.dotfiles/config/.Xresources-work ~/.Xresources
 	xrdb -merge ~/.Xresources
+	cat ~/.Xresources
 	
-	if [[ $PRIMARY_MONITOR == "eDP" ]]; then
-		echo "Monitor=[${PRIMARY_MONITOR}]"
-		xrandr --output $PRIMARY_MONITOR --auto --dpi $DPI2 --primary
-	fi
-	
-	if [[ $SECONDARY_MONITOR == "DisplayPort-1" ]]; then
-		echo "Monitor=[${SECONDARY_MONITOR}]"
-		xrandr --output $SECONDARY_MONITOR --auto --left-of $PRIMARY_MONITOR --dpi $DPI2
-	fi
+	setMonitorResolution "$PRIMARY_MONITOR" "2880x1800" "60" "242" "--primary --right-of $SECONDARY_MONITOR"
+	setMonitorResolution "$SECONDARY_MONITOR" "3840x2160" "60" "162" "--left-of $PRIMARY_MONITOR"
 fi
