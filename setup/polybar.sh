@@ -1,2 +1,6 @@
 #!/bin/bash
-polybar -r primary & polybar -r secondary
+
+killall -g polybar
+
+polybar -r primary &
+polybar -r secondary &
