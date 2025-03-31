@@ -14,7 +14,10 @@ export PATH
 # Auto start ssh-agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
     eval "$(ssh-agent -s)" > /dev/null
-	~/.dotfiles/setup/ssh-keys.sh
+fi
+
+if [ "$SSH_AUTH_SOCK" ]; then
+	~/.dotfiles/setup/ssh-keys.sh 2&> /dev/null
 fi
 
 # Environment
