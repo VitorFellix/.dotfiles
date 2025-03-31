@@ -7,7 +7,7 @@ if [ ! -d ${ssh_dir} ]; then
 	exit 1
 fi
 
-keys=$(find ${ssh_dir} -type f | grep -v "pub\|old\|known\|host")
+keys=$(find ${ssh_dir} -type f | grep -v "pub\|old\|known\|host\|authorized_keys")
 
 for k in ${keys}; do
 	ssh-add ${k}
