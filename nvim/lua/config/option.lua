@@ -30,5 +30,7 @@ vim.opt.inccommand = 'split'
 
 vim.opt.swapfile = false
 
+vim.opt.laststatus = 3             -- Global statusline
+
 vim.cmd("syntax on")
 vim.cmd("colorscheme kanagawa-wave")
