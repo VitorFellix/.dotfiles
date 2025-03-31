@@ -17,27 +17,27 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 
 if [ "$SSH_AUTH_SOCK" ]; then
-	~/.dotfiles/setup/ssh-keys.sh 2&> /dev/null
+	~/.dotfiles/setup/ssh-keys.sh > /dev/null 2>&1 
 fi
 
 # Environment
 export HISTSIZE=10000
-export EDITOR=nvim
-
+# Set neovim as default editor if installed
+if which nvim > /dev/null 2>&1; then
+	export EDITOR=nvim
+fi
 # Number of trailing dirs on prompt
 export PROMPT_DIRTRIM=2
+# Prompt appearance
+PS1='[\u@\h] \w $ '
 
-# PS1='[\u@\h] \w $ '
-
-# Common
+# Aliases
 alias aliases="cat $HOME/.bashrc | grep alias"
 alias lsc="ls -xogskhtr --color"
 alias dnfi="sudo dnf install -y"
 alias dnfr="sudo dnf remove -y"
-
 # Fetch
 alias ff='pyfiglet -s $(fastfetch -s os --format json | jq -r ".[0].result.name") && echo "" && fastfetch -l none && echo ""'
-
 # Git
 alias ga="git add"
 alias gs="git status"
@@ -50,7 +50,7 @@ alias grs="git restore --staged"
 alias gcm="git commit -m"
 
 # File manager
-if which nnn >/dev/null 2>&1 ;then								# check if tmux is installed
+if which nnn >/dev/null 2>&1 ;then
 	source $HOME/.dotfiles/config/nnn.config
 fi
 
