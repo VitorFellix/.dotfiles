@@ -31,4 +31,4 @@ vim.opt.inccommand = 'split'
 vim.opt.swapfile = false
 
 vim.cmd("syntax on")
-vim.cmd("colorscheme rose-pine-moon")
+vim.cmd("colorscheme kanagawa-wave")
