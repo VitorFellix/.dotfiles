@@ -17,7 +17,7 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 
 if [ "$SSH_AUTH_SOCK" ]; then
-	~/.dotfiles/setup/ssh-keys.sh > /dev/null 2>&1 
+	$SCRIPTS_PATH/ssh-keys.sh > /dev/null 2>&1 
 fi
 
 # Environment
