@@ -1,0 +1,7 @@
+0 */3 * * * git -C ~/Repository/cdms-tasks-station pull >> ~/Repository/auto-git-pull 2>&1
+1 */3 * * * git -C ~/Repository/cdms-tasks-reservoir pull >> ~/Repository/auto-git-pull 2>&1
+2 */3 * * * git -C ~/Repository/webmet-io pull >> ~/Repository/auto-git-pull 2>&1
+3 */3 * * * git -C ~/Repository/webmet-telemetry-tasks pull >> ~/Repository/auto-git-pull 2>&1
+4 */3 * * * git -C ~/Repository/cdms-test pull >> ~/Repository/auto-git-pull 2>&1
+5 */3 * * * git -C ~/Repository/webmet-data-api pull >> ~/Repository/auto-git-pull 2>&1
+0 10 * * * git -C ~/.dotfiles pull >> ~/Repository/auto-git-pull 2>&1

@@ -1,0 +1,2 @@
+# run every hour
+0 * * * * git -C ~/.dotfiles pull >> ~/Repository/auto-git-pull 2>&1
