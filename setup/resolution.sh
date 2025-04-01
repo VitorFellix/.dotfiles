@@ -39,6 +39,6 @@ elif [[ $(hostname) == "$HOSTNAME_WORK" ]]; then
 	xrdb -merge ~/.Xresources
 	cat ~/.Xresources
 	
-	setMonitorResolution "$PRIMARY_MONITOR" "2880x1800" "60" "242" "--primary --right-of $SECONDARY_MONITOR"
-	setMonitorResolution "$SECONDARY_MONITOR" "3840x2160" "60" "162" "--left-of $PRIMARY_MONITOR"
+	setMonitorResolution "$PRIMARY_MONITOR" "2880x1800" "60" "242" "--right-of $SECONDARY_MONITOR"
+	setMonitorResolution "$SECONDARY_MONITOR" "3840x2160" "60" "162" "--primary --left-of $PRIMARY_MONITOR"
 fi
