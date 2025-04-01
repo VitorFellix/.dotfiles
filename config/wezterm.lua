@@ -3,11 +3,9 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config = {
-	-- color_scheme = 'rose-pine-moon',
 	color_scheme = 'Kanagawa (Gogh)',
 
-	-- font = wezterm.font('IosevkaTerm Nerd Font Mono', { weight = 'Regular', italic = false }),
-	font = wezterm.font('DepartureMono Nerd Font', { weight = 'Regular', italic = false }),
+	font = wezterm.font('JetBrains Nerd Font Mono', { weight = 'Regular', italic = false }),
 
 	use_fancy_tab_bar = false,
 	tab_max_width = 40,
