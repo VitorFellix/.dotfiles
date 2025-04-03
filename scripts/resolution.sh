@@ -10,12 +10,11 @@ setMonitorResolution() {
 	MONITOR=$1
 	RESOLUTION=$2
 	REFRESH=$3
-	DPI=$4
-	EXTRA=$5
+	EXTRA=$4
 
 	if [[ $MONITOR != "" ]]; then
 		echo "Executing xrandr."
-		XRANDR_COMMAND="xrandr --output $MONITOR --mode $RESOLUTION --refresh $REFRESH --dpi $DPI $EXTRA"
+		XRANDR_COMMAND="xrandr --output $MONITOR --mode $RESOLUTION --refresh $REFRESH $EXTRA"
 		echo $XRANDR_COMMAND
 		eval $XRANDR_COMMAND
 	fi
@@ -29,7 +28,7 @@ if [[ $(hostname) == "$HOSTNAME_PERSONAL" ]]; then
 	xrdb -merge ~/.Xresources
 	cat ~/.Xresources
 
-	setMonitorResolution "$PRIMARY_MONITOR" "3840x2160" "239.99" "137" "--primary"
+	setMonitorResolution "$PRIMARY_MONITOR" "3840x2160" "239.99" "--primary"
 
 elif [[ $(hostname) == "$HOSTNAME_WORK" ]]; then
 	echo "Setting resolution for work computer '$HOSTNAME_WORK'."
@@ -39,6 +38,11 @@ elif [[ $(hostname) == "$HOSTNAME_WORK" ]]; then
 	xrdb -merge ~/.Xresources
 	cat ~/.Xresources
 	
-	setMonitorResolution "$PRIMARY_MONITOR" "2880x1800" "60" "242" "--right-of $SECONDARY_MONITOR"
-	setMonitorResolution "$SECONDARY_MONITOR" "3840x2160" "60" "162" "--primary --left-of $PRIMARY_MONITOR"
+	setMonitorResolution "$PRIMARY_MONITOR" "2880x1800" "60" "--right-of $SECONDARY_MONITOR"
+	setMonitorResolution "$SECONDARY_MONITOR" "3840x2160" "60" "--primary --left-of $PRIMARY_MONITOR"
 fi
+
+# dpi
+# 4k 32" - 137
+# 4k 27" - 162
+# 2k 14" - 242
