@@ -19,8 +19,8 @@ createLink() {
 	log_info "Should link configuration for $1"
 	read -p "[y/n] " ANSWER
 	if [[ $ANSWER == "y" ]]; then
-		eval $hook
 		eval "rm -rf $2"
+		eval $hook
 		eval "ln -s $3 $2"
 		log_info "Configuration for $1 finished." 
 	fi
