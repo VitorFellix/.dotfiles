@@ -20,27 +20,23 @@ setMonitorResolution() {
 	fi
 }
 
+echo "Copying .Xresources to home folder."
+
 if [[ $(hostname) == "$HOSTNAME_PERSONAL" ]]; then
-	echo "Setting resolution for home computer '$HOSTNAME_PERSONAL'."
-
-	echo "Copying .Xresources to home folder."
 	cp ~/.dotfiles/config/.Xresources-personal ~/.Xresources
-	xrdb -merge ~/.Xresources
-	cat ~/.Xresources
 
+	echo "Setting resolution for home computer '$HOSTNAME_PERSONAL'."
 	setMonitorResolution "$PRIMARY_MONITOR" "3840x2160" "239.99" "--primary"
 
 elif [[ $(hostname) == "$HOSTNAME_WORK" ]]; then
-	echo "Setting resolution for work computer '$HOSTNAME_WORK'."
-
-	echo "Copying .Xresources to home folder."
 	cp ~/.dotfiles/config/.Xresources-work ~/.Xresources
-	xrdb -merge ~/.Xresources
-	cat ~/.Xresources
 	
+	echo "Setting resolution for work computer '$HOSTNAME_WORK'."
 	setMonitorResolution "$PRIMARY_MONITOR" "2880x1800" "60" "--right-of $SECONDARY_MONITOR"
 	setMonitorResolution "$SECONDARY_MONITOR" "3840x2160" "60" "--primary --left-of $PRIMARY_MONITOR"
 fi
+
+xrdb -merge ~/.Xresources
 
 # dpi
 # 4k 32" - 137
