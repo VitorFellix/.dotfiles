@@ -1,4 +1,11 @@
 #!/bin/bash
 
-dnf copr enable elxreno/jetbrains-mono-fonts -y
-dnf install jetbrains-mono-fonts -y
+FONTS_PATH="~/.local/share/"
+INSTALL_CMD="cp -r $SCRIPTS_PATH/../fonts $FONTS_PATH"
+echo 'copying fonts files...'
+echo $INSTALL_CMD
+eval $INSTALL_CMD
+
+echo 'caching fonts...'
+fc-cache -f
+echo 'done'
