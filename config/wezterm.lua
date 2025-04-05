@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config = {
-	-- color_scheme = 'Kanagawa (Gogh)',
+	color_scheme = 'Kanagawa (Gogh)',
 
 	font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Regular', italic = false }),
 
@@ -16,10 +16,10 @@ config = {
 
 	use_resize_increments = true,
 	window_padding = {
-		left = 6,
-		right = 6,
-		top = 6,
-		bottom = 6,
+		left = 24,
+		right = 24,
+		top = 24,
+		bottom = 24,
 	}
 }
 
