@@ -34,3 +34,6 @@ vim.opt.laststatus = 3             -- Global statusline
 
 vim.cmd("syntax on")
 vim.cmd("colorscheme kanagawa-wave")
+
+vim.opt.title = true               -- Enable title updates
+vim.opt.titlestring = '%t'
