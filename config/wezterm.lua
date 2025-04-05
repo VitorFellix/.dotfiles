@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config = {
 	-- color_scheme = 'Kanagawa (Gogh)',
 
-	font = wezterm.font('JetBrains Mono', { weight = 'Regular', italic = false }),
+	font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Regular', italic = false }),
 
 	use_fancy_tab_bar = false,
 	tab_max_width = 40,
