@@ -16,14 +16,15 @@ log_info 'Set links script.'
 createLink() {
 	local hook=$4
 
-	log_info "Should link configuration for $1"
-	read -p "[y/n] " ANSWER
-	if [[ $ANSWER == "y" ]]; then
+	# log_info "Should link configuration for $1"
+	log_info "Configuring $1..."
+	# read -p "[y/n] " ANSWER
+	# if [[ $ANSWER == "y" ]]; then
 		eval "rm -rf $2"
 		eval $hook
 		eval "ln -s $3 $2"
 		log_info "Configuration for $1 finished." 
-	fi
+	# fi
 }
 
 createLink "bashrc" "~/.bashrc" "~/.dotfiles/config/bashrc"
@@ -35,8 +36,9 @@ createLink "fastfetch" "~/.config/fastfetch/config.jsonc" "~/.dotfiles/config/fa
 log_warn 'desktop specific configurations'
 
 createLink "wezterm" "~/.config/wezterm/wezterm.lua" "~/.dotfiles/config/wezterm.lua" 'mkdir -p ~/.config/wezterm'
-createLink "waybar" "~/.config/waybar/config.jsonc" "~/.dotfiles/config/waybar.jsonc"
+createLink "waybar" "~/.config/waybar/config.jsonc" "~/.dotfiles/config/waybar.jsonc" 'mkdir -p ~/.config/waybar'
 createLink "waybar style" "~/.config/waybar/style.css" "~/.dotfiles/config/waybar-style.css"
+createLink "hyprland" "~/.config/hyprland/hyprland.conf" "~/.dotfiles/config/hyprland.config" 'mkdir -p ~/.config/hyprland'
 createLink "i3" "~/.config/i3/config" "~/.dotfiles/config/i3.config" 'mkdir -p ~/.config/i3'
 createLink "i3status" "~/.config/i3status/config" "~/.dotfiles/config/i3status.config" 'mkdir -p ~/.config/i3status'
 createLink "picom" "~/.config/picom/config" "~/.dotfiles/config/picom.config" 'mkdir -p ~/.config/picom'
