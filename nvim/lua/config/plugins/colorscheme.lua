@@ -3,5 +3,6 @@ return {
 	{ 'morhetz/gruvbox',        name = 'gruvbox' },
 	{ 'AlexvZyl/nordic.nvim',   name = 'nordic' },
 	{ 'Shatur/neovim-ayu',      name = 'ayu' },
-	{ "rose-pine/neovim",       name = "rose-pine" },
+	{ "rose-pine/neovim",       name = 'rose-pine' },
+	{ "navarasu/onedark.nvim",	name = 'onedark' },
 }
