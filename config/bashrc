@@ -33,7 +33,7 @@ export PROMPT_DIRTRIM=2
 
 # Aliases
 alias aliases="cat $HOME/.bashrc | grep alias"
-alias lsc="ls -xogskhtr --color"
+alias lsc="ls -xogskhtr --color --group-directories-first"
 alias dnfi="sudo dnf install -y"
 alias dnfr="sudo dnf remove -y"
 # Fetch
