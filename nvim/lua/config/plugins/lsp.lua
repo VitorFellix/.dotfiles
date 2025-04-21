@@ -51,16 +51,30 @@ return {
 
 		require("fidget").setup({})
 		require("mason").setup({})
-		-- used for lsp, linter and formatters
+
+		-- Mason tool installer setup
 		require("mason-tool-installer").setup({
 			ensure_installed = {
-				"prettier", "stylua", "gopls", "goimports", "shfmt", "typescript-language-server", "html-lsp",
-				"css-lsp", "json-lsp", "lua-language-server", "bash-language-server", "gopls",
-				"dockerfile-language-server", "lemminx", "grammarly-languageserver",
+				"prettier",
+				"stylua",
+				"gopls",
+				"goimports",
+				"shfmt",
+				"typescript-language-server",
+				"html-lsp",
+				"css-lsp",
+				"json-lsp",
+				"lua-language-server",
+				"bash-language-server",
+				"gopls",
+				"dockerfile-language-server",
+				"lemminx",
+				"grammarly-languageserver",
 			},
 			auto_update = true,
 		})
-		-- used for configuring lsp
+
+		-- Mason LSP config
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
 			ensure_installed = {
@@ -69,7 +83,6 @@ return {
 				"bashls",
 				"gopls",
 				"html",
-				"cssls",
 				"dockerls",
 				"lemminx",
 				"grammarly",
@@ -130,6 +143,7 @@ return {
 				header = "",
 				prefix = "",
 			},
+			update_in_insert = true, -- Update diagnostics while typing
 		})
 
 		-- Formatter / Linter Setup
@@ -150,5 +164,21 @@ return {
 				null_ls.builtins.formatting.shfmt,
 			},
 		})
+
+		-- Optional: Custom keybindings for LSP actions
+		vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>rn",
+			"<cmd>lua vim.lsp.buf.rename()<CR>",
+			{ noremap = true, silent = true }
+		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>ca",
+			"<cmd>lua vim.lsp.buf.code_action()<CR>",
+			{ noremap = true, silent = true }
+		)
 	end,
 }
