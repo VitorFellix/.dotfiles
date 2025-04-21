@@ -28,6 +28,7 @@ return {
 		"j-hui/fidget.nvim",
 		"MunifTanjim/nui.nvim",
 		{ "folke/neodev.nvim", opts = {} },
+		"windwp/nvim-autopairs",
 
 		-- Formatting/Linting
 		"nvimtools/none-ls.nvim", -- null-ls successor
@@ -48,6 +49,12 @@ return {
 				enabled = true,
 			},
 		})
+
+		-- Autopairs setup
+		require("nvim-autopairs").setup({
+			check_ts = true, -- Enable treesitter integration
+		})
+		cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
 
 		require("fidget").setup({})
 		require("mason").setup({})
