@@ -4,7 +4,7 @@ return {
 	opts = {
 		ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'ruby', 'go' },
 		sync_install = true,
-		auto_install = true,
+		auto_install = false,
 		highlight = {
 			enable = true,
 			additional_vim_regex_highlighting = { 'ruby' },
