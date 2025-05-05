@@ -15,9 +15,6 @@ else
   for m in $screens; do
     if [[ $MONITOR_PRIMARY == $m ]]; then
         MONITOR=$m DPI=162 polybar -r primary &
-    else
-		# DPI=242 
-        MONITOR=$m polybar -r secondary &
     fi
   done
 fi
