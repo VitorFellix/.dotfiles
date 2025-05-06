@@ -11,6 +11,8 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+export SCRIPTS_PATH="$HOME/.dotfiles/scripts"
+
 # Auto start ssh-agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
     eval "$(ssh-agent -s)" > /dev/null
