@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOSTNAME_PERSONAL=fedora
+HOSTNAME_PERSONAL=suflair
 HOSTNAME_WORK=sim2996
 
 PRIMARY_MONITOR=$(xrandr | grep connected | grep -v disconnected | awk '{print $1}' | head -n 1)
