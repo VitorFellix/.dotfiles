@@ -1,0 +1,2 @@
+#!/bin/bash
+cat ~/.dotfiles/config/i3.config | grep -v '#' | grep -v Audio | grep bindsym | bat

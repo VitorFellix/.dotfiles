@@ -1,0 +1,13 @@
+#!/bin/bash
+
+FILE=$1
+CMD=$2
+
+BIN_PATH=~/.dotfiles/bin/
+
+touch ${BIN_PATH}${FILE}
+chmod +x ${BIN_PATH}${FILE}
+echo "#!/bin/bash" > ${BIN_PATH}${FILE}
+echo "${CMD}" >> ${BIN_PATH}${FILE}
+bat ${BIN_PATH}${FILE}
+~/.dotfiles/scripts/link-binaries.sh
