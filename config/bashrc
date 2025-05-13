@@ -12,7 +12,10 @@ fi
 export PATH
 
 export SCRIPTS_PATH="$HOME/.dotfiles/scripts"
-export WALLPAPER_FOLDER="$HOME/media/photos/Wallpapers"
+export WALLPAPER_FOLDER="$HOME/library/images/wallpapers"
+
+# Set bell sound off
+xset b off
 
 # Auto start ssh-agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
