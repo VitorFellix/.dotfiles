@@ -41,7 +41,7 @@ createLink "waybar style" "~/.config/waybar/style.css" "~/.dotfiles/config/wayba
 createLink "hyprland" "~/.config/hyprland/hyprland.conf" "~/.dotfiles/config/hyprland.config" 'mkdir -p ~/.config/hyprland'
 createLink "i3" "~/.config/i3/config" "~/.dotfiles/config/i3.config" 'mkdir -p ~/.config/i3'
 createLink "i3status" "~/.config/i3status/config" "~/.dotfiles/config/i3status.config" 'mkdir -p ~/.config/i3status'
-createLink "picom" "~/.config/picom/config" "~/.dotfiles/config/picom.config" 'mkdir -p ~/.config/picom'
+createLink "picom" "~/.config/picom/picom.conf" "~/.dotfiles/config/picom.conf" 'mkdir -p ~/.config/picom'
 createLink "rofi" "~/.config/rofi/config.rasi" "~/.dotfiles/config/rofi.css" 'mkdir -p ~/.config/rofi'
 createLink "polybar" "~/.config/polybar/config.ini" "~/.dotfiles/config/polybar.ini" 'mkdir -p ~/.config/polybar'
 
