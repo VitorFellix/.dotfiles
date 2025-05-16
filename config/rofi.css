@@ -15,8 +15,6 @@ configuration {
     display-window: "󰖲  Window ";
     display-ssh: "󰣀  SSH ";
     sidebar-mode: true;
-    matching: "fuzzy";
-    sorting-method: "fzf";
 }
 
 * {
