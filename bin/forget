@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Session history
+for n in $(history | grep $1 | awk '{print $1}' | sort -rn); do
+  history -d "$n"
+done
+history -w
+
+# Pesistent history
+grep -v "$1" ~/.bash_history > ~/.bash_history.tmp
+mv ~/.bash_history.tmp ~/.bash_history
+history -c
+history -r
