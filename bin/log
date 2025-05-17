@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MSG=$1
+LEVEL=$2
+
+echo -e "\
+ \033[0;34m[$(date +"%Y-%m-%d %H:%M:%S")]\033[0;m\
+ \033[0;32m["$(basename $0)"]\033[0;m\
+ [${LEVEL:=INFO}]\
+ ${MSG}"
