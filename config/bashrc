@@ -14,6 +14,8 @@ export PATH
 export SCRIPTS_PATH="$HOME/.dotfiles/scripts"
 export WALLPAPER_FOLDER="$HOME/library/images/wallpapers"
 
+[ -f ~/.local/bin/log ] && source ~/.local/bin/log
+
 # Set bell sound off if on notebook
 if [[ $(hostname) == "sim2996" ]]; then
 	xset b off

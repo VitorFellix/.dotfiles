@@ -3,8 +3,21 @@
 MSG=$1
 LEVEL=$2
 
+log() {
+	local SCRIPT_PATH
+	if [ "${#BASH_SOURCE[@]}" -gt 1 ]; then
+	  SCRIPT_PATH="${BASH_SOURCE[1]}"
+	else
+	  SCRIPT_PATH="$0"
+	fi
+	local SCRIPT_NAME
+	SCRIPT_NAME=$(basename "$SCRIPT_PATH")
+
 echo -e "\
  \033[0;34m[$(date +"%Y-%m-%d %H:%M:%S")]\033[0;m\
- \033[0;32m["$(basename $0)"]\033[0;m\
+ \033[0;32m["${SCRIPT_NAME}"]\033[0;m\
  [${LEVEL:=INFO}]\
  ${MSG}"
+}
+
+export -f log
