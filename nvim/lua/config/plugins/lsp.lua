@@ -48,11 +48,11 @@ return {
 		)
 
 		-- Java setup
-		require("java").setup({
-			spring_boot_tools = {
-				enabled = true,
-			},
-		})
+		-- require("java").setup({
+			-- spring_boot_tools = {
+			-- 	enabled = true,
+			-- },
+		-- })
 
 		-- Autopairs setup
 		require("nvim-autopairs").setup({
