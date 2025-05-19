@@ -44,6 +44,7 @@ createLink "i3status" "~/.config/i3status/config" "~/.dotfiles/config/i3status.c
 createLink "picom" "~/.config/picom/picom.conf" "~/.dotfiles/config/picom.conf" 'mkdir -p ~/.config/picom'
 createLink "rofi" "~/.config/rofi/config.rasi" "~/.dotfiles/config/rofi.css" 'mkdir -p ~/.config/rofi'
 createLink "polybar" "~/.config/polybar/config.ini" "~/.dotfiles/config/polybar.ini" 'mkdir -p ~/.config/polybar'
+createLink "alacritty" "~/.config/alacritty/alacritty.toml" "~/.dotfiles/config/alacritty.toml" 'mkdir -p ~/.config/alacritty'
 
 log_info 'finished'
 exit 0
