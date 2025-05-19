@@ -32,6 +32,10 @@ return {
 
 		-- Formatting/Linting
 		"nvimtools/none-ls.nvim", -- null-ls successor
+
+		-- -- Scala
+		-- "nvim-lua/plenary.nvim", -- utility functions
+		-- "scalameta/nvim-metals", -- Scala LSP support for Neovim
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -54,7 +58,7 @@ return {
 		require("nvim-autopairs").setup({
 			check_ts = true, -- Enable treesitter integration
 		})
-		cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
+		cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
 		require("fidget").setup({})
 		require("mason").setup({})
@@ -113,6 +117,14 @@ return {
 						},
 					})
 				end,
+				-- ["metals"] = function()
+				-- 	local metals_config = require("metals").bare_config()
+				-- 	metals_config.capabilities = capabilities
+				-- 	metals_config.on_attach = function(_, bufnr)
+				-- 		require("metals").setup_dap() -- enable debugging via nvim-dap
+				-- 	end
+				-- 	require("metals").initialize_or_attach(metals_config)
+				-- end,
 			},
 		})
 

@@ -23,8 +23,8 @@ vim.opt.colorcolumn = "120"
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+-- vim.opt.updatetime = 250
+-- vim.opt.timeoutlen = 300
 
 vim.opt.inccommand = 'split'
 
