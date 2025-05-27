@@ -5,17 +5,16 @@ createLink() {
 	# $1 link name
 	local LINK_NAME=$1
 	# $2 path to .config
-	local DOT_CONFIG=$2
+	local CONFIG=$2
 	# $3 path to config inside .dotfile/config
-	local DOT_FILE_CONFIG=$3
+	local DOTFILE=$3
 	# $4 hook string, can be used to run other commands before creating the link
 	local HOOK=$4
 
-	log "configuring $1..."
-	eval "rm -rf $2"
+	log "configuring $LINK_NAME..."
+	eval "rm -rf $CONFIG"
 	eval $HOOK
-	eval "ln -s $3 $2"
-	log "configuration for $1 finished." 
+	eval "ln -s $DOTFILE $CONFIG"
 }
 
 log '--- default x11 and bashrc configs'
