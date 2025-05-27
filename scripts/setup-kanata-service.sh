@@ -21,6 +21,13 @@ config(){
 	log "creating link for config"
 	ln -s "/home/vitor/.dotfiles/config/kanata.kbd" "/etc/kanata/kanata.kbd"
 
+	if [[ -e "/usr/lib/kanata" ]]; then
+		log "removing existing kanata"
+		rm "/usr/lib/kanata"
+	fi
+	log "creating link to kanata"
+	ln -s "/home/vitor/.cargo/bin/kanata" "/usr/lib/kanata"
+
 	if [[ -e "/lib/systemd/system/kanata.service" ]]; then
 		log "removing existing service"
 		rm "/lib/systemd/system/kanata.service"
