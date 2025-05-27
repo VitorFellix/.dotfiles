@@ -6,6 +6,18 @@ set -e
 # Source log
 source "/home/vitor/.dotfiles/bin/log"
 
+if [[ ! $(whoami) == "root" ]]; then
+	log "not running with root user. please run with sudo."
+	exit 1
+fi
+log "running with root user"
+
+if [[ ! -e "/home/vitor/.cargo/bin/kanata" ]]; then
+	log "kanata not installed. please run install-kanata script"
+	exit 1
+fi
+log "kanata installed"
+
 # Configures the service by linking the configs and removing old ones
 config(){
 	if [[ ! -d "/etc/kanata" ]]; then
@@ -49,8 +61,16 @@ enable(){
 	systemctl enable kanata
 }
 
+# Adds the user to input group
+inputGroup(){
+	usermod -a -G input vitor
+}
+
 log "configuring service"
 config
+
+log "configuring user group"
+inputGroup
 
 log "enabling service"
 enable
