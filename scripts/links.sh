@@ -20,7 +20,7 @@ createLink() {
 log '--- default x11 and bashrc configs'
 createLink "bashrc" "~/.bashrc" "~/.dotfiles/config/bashrc"
 createLink ".xprofile" "~/.xprofile" "~/.dotfiles/config/xprofile"
-createLink ".xsession" "~/.xsession" "~/.dotfiles/config/xsession"
+# createLink ".xsession" "~/.xsession" "~/.dotfiles/config/xsession"
 
 log '--- default apps configs'
 createLink "tmux" "~/.tmux.conf" "~/.dotfiles/config/tmux.config"
@@ -38,6 +38,10 @@ createLink "i3" "~/.config/i3/config" "~/.dotfiles/config/i3.config" 'mkdir -p ~
 createLink "picom" "~/.config/picom/picom.conf" "~/.dotfiles/config/picom.conf" 'mkdir -p ~/.config/picom'
 createLink "rofi" "~/.config/rofi/config.rasi" "~/.dotfiles/config/rofi.css" 'mkdir -p ~/.config/rofi'
 createLink "polybar" "~/.config/polybar/config.ini" "~/.dotfiles/config/polybar.ini" 'mkdir -p ~/.config/polybar'
+
+log '--- services configs'
+createLink "ssh-agent" "~/.config/systemd/user/ssh-agent.service" "~/.dotfiles/config/services/ssh-agent.service" 'mkdir -p ~/.config/systemd/user/'
+systemctl --user enable --now ssh-agent.service
 
 log '--- finished'
 
