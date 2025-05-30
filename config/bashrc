@@ -54,7 +54,8 @@ alias lsc="ls -ltskhtr --color --group-directories-first"
 alias dnfi="sudo dnf install -y"
 alias dnfr="sudo dnf remove -y"
 # Fetch
-alias ff='pyfiglet -s $(fastfetch -s os --format json | jq -r ".[0].result.name") && echo "" && fastfetch -l none && echo ""'
+# alias ff='pyfiglet -s $(fastfetch -s os --format json | jq -r ".[0].result.name") && echo "" && fastfetch -l none && echo ""'
+alias ff='pyfiglet -s $(hostname) && echo "" && fastfetch -l none && echo ""'
 # Git
 alias ga="git add"
 alias gs="git status"
