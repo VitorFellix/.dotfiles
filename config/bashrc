@@ -30,6 +30,8 @@ export HISTSIZE=10000
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
+# Prompt variable PS1
 PS1='\[\033[38;5;39m\]\u\[\033[38;5;245m\]@\[\033[38;5;33m\]\h \[\033[38;5;245m\][\[\033[38;5;76m\]\w\[\033[38;5;245m\]]\[\033[38;5;196m\]$(parse_git_branch)\n\[\033[38;5;208m\]❯\[\033[0m\] '
 
 # Aliases
@@ -38,7 +40,7 @@ alias lsc="ls -ltskhtr --color --group-directories-first"
 alias dnfi="sudo dnf install -y"
 alias dnfr="sudo dnf remove -y"
 # Fetch
-alias ff='clear; pyfiglet -s $(hostname) && echo "" && fastfetch -l none && echo ""'
+alias ff='clear; pyfiglet -s $(hostname) && fastfetch -l none'
 # Git
 alias ga="git add"
 alias gs="git status"
