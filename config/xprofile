@@ -1,0 +1,7 @@
+# Set bell sound off if on notebook
+if [[ $(hostname) == "sim2996" ]]; then
+	xset b off
+fi
+
+# Set ssh socket variable
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
