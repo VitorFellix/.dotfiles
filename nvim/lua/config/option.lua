@@ -1,7 +1,7 @@
 -- if needed read the help menu with -> :h <option>
 
-vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.number = false
+vim.opt.relativenumber = true
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -18,7 +18,7 @@ vim.opt.smartindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.scrolloff = 12
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "160"
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true

@@ -1,0 +1,11 @@
+[Unit]
+Description=Kanata Service
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+Type=simple
+Environment=KANATA_CONFIG_FILE=/etc/kanata/kanata.kbd
+ExecStart=/home/vitor/.cargo/bin/kanata --cfg $KANATA_CONFIG_FILE
+
+[Install]
+WantedBy=default.target

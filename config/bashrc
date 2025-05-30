@@ -4,38 +4,24 @@
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
-
 # User specific binaries path
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
-export PATH
 
-export SCRIPTS_PATH="$HOME/.dotfiles/scripts"
-export WALLPAPER_FOLDER="$HOME/library/images/wallpapers"
-
-[ -f ~/.local/bin/log ] && source ~/.local/bin/log
-
-# Set bell sound off if on notebook
-if [[ $(hostname) == "sim2996" ]]; then
-	xset b off
-fi
-
-# Auto start ssh-agent
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    eval "$(ssh-agent -s)" > /dev/null
-fi
-
-if [ "$SSH_AUTH_SOCK" ]; then
-	$SCRIPTS_PATH/ssh-keys.sh > /dev/null 2>&1 
-fi
-
-# Environment
-export HISTSIZE=10000
 # Set neovim as default editor if installed
 if which nvim > /dev/null 2>&1; then
 	export EDITOR=nvim
 fi
+
+# Source log binary
+[ -f ~/.local/bin/log ] && source ~/.local/bin/log
+
+# Environment variables
+export SCRIPTS_PATH="$HOME/.dotfiles/scripts"
+export WALLPAPER_FOLDER="$HOME/library/images/wallpapers"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export HISTSIZE=10000
 
 # Prompt appearance
 # Number of trailing dirs on prompt
@@ -44,8 +30,6 @@ fi
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-# PS1='[\u@\h] \w $ '
-# PS1='\[\033[38;5;39m\]\u\[\033[38;5;245m\]@\[\033[38;5;33m\]\h \[\033[38;5;245m\][\[\033[38;5;76m\]\w\[\033[38;5;245m\]]\n\[\033[38;5;208m\]❯\[\033[0m\] '
 PS1='\[\033[38;5;39m\]\u\[\033[38;5;245m\]@\[\033[38;5;33m\]\h \[\033[38;5;245m\][\[\033[38;5;76m\]\w\[\033[38;5;245m\]]\[\033[38;5;196m\]$(parse_git_branch)\n\[\033[38;5;208m\]❯\[\033[0m\] '
 
 # Aliases
@@ -54,8 +38,7 @@ alias lsc="ls -ltskhtr --color --group-directories-first"
 alias dnfi="sudo dnf install -y"
 alias dnfr="sudo dnf remove -y"
 # Fetch
-# alias ff='pyfiglet -s $(fastfetch -s os --format json | jq -r ".[0].result.name") && echo "" && fastfetch -l none && echo ""'
-alias ff='pyfiglet -s $(hostname) && echo "" && fastfetch -l none && echo ""'
+alias ff='clear; pyfiglet -s $(hostname) && echo "" && fastfetch -l none && echo ""'
 # Git
 alias ga="git add"
 alias gs="git status"
