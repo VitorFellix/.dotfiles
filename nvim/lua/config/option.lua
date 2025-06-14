@@ -40,7 +40,8 @@ vim.opt.writebackup = false
 vim.opt.laststatus = 3
 
 vim.cmd("syntax on")
-vim.cmd("colorscheme kanagawa-wave")
+vim.cmd("colorscheme default")
+vim.opt.background = "light"
 
 vim.opt.title = true
 vim.opt.titlestring = "%t"
