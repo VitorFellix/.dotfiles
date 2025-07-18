@@ -19,14 +19,14 @@ createLink() {
 
 log '--- default x11 and bashrc configs'
 createLink "bashrc" "~/.bashrc" "~/.dotfiles/config/bashrc"
-createLink ".xprofile" "~/.xprofile" "~/.dotfiles/config/xprofile"
+# createLink ".xprofile" "~/.xprofile" "~/.dotfiles/config/xprofile"
 # createLink ".xsession" "~/.xsession" "~/.dotfiles/config/xsession"
 
 log '--- default apps configs'
-createLink "tmux" "~/.tmux.conf" "~/.dotfiles/config/tmux.config"
+# createLink "tmux" "~/.tmux.conf" "~/.dotfiles/config/tmux.config"
 createLink "neovim" "~/.config/nvim" "~/.dotfiles/nvim"
 createLink "fastfetch" "~/.config/fastfetch/config.jsonc" "~/.dotfiles/config/fastfetch.jsonc" 'mkdir -p ~/.config/fastfetch'
-createLink "alacritty" "~/.config/alacritty/alacritty.toml" "~/.dotfiles/config/alacritty.toml" 'mkdir -p ~/.config/alacritty'
+# createLink "alacritty" "~/.config/alacritty/alacritty.toml" "~/.dotfiles/config/alacritty.toml" 'mkdir -p ~/.config/alacritty'
 # createLink "wezterm" "~/.config/wezterm/wezterm.lua" "~/.dotfiles/config/wezterm.lua" 'mkdir -p ~/.config/wezterm'
 
 log '--- desktop configs'
@@ -34,10 +34,10 @@ log '--- desktop configs'
 # createLink "waybar style" "~/.config/waybar/style.css" "~/.dotfiles/config/waybar-style.css"
 # createLink "hyprland" "~/.config/hyprland/hyprland.conf" "~/.dotfiles/config/hyprland.config" 'mkdir -p ~/.config/hyprland'
 # createLink "i3status" "~/.config/i3status/config" "~/.dotfiles/config/i3status.config" 'mkdir -p ~/.config/i3status'
-createLink "i3" "~/.config/i3/config" "~/.dotfiles/config/i3.config" 'mkdir -p ~/.config/i3'
-createLink "picom" "~/.config/picom/picom.conf" "~/.dotfiles/config/picom.conf" 'mkdir -p ~/.config/picom'
-createLink "rofi" "~/.config/rofi/config.rasi" "~/.dotfiles/config/rofi.css" 'mkdir -p ~/.config/rofi'
-createLink "polybar" "~/.config/polybar/config.ini" "~/.dotfiles/config/polybar.ini" 'mkdir -p ~/.config/polybar'
+# createLink "i3" "~/.config/i3/config" "~/.dotfiles/config/i3.config" 'mkdir -p ~/.config/i3'
+# createLink "picom" "~/.config/picom/picom.conf" "~/.dotfiles/config/picom.conf" 'mkdir -p ~/.config/picom'
+# createLink "rofi" "~/.config/rofi/config.rasi" "~/.dotfiles/config/rofi.css" 'mkdir -p ~/.config/rofi'
+# createLink "polybar" "~/.config/polybar/config.ini" "~/.dotfiles/config/polybar.ini" 'mkdir -p ~/.config/polybar'
 
 log '--- services configs'
 createLink "ssh-agent" "~/.config/systemd/user/ssh-agent.service" "~/.dotfiles/config/services/ssh-agent.service" 'mkdir -p ~/.config/systemd/user/'
