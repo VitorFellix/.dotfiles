@@ -28,7 +28,7 @@ return {
 			end,
 		},
 	},
-	ft = { "scala", "sbt", "java" },
+	ft = { "scala", "sbt" },
 	opts = function()
 		local metals_config = require("metals").bare_config()
 		metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
