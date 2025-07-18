@@ -32,9 +32,8 @@ if [[ $# -gt 2 ]]; then
 fi
 
 VERSION=$1
-SET_DEFAULT=$2
 
-log "installing - version $VERSION and setting as default $SET_DEFAULT"
+log "installing - version $VERSION and setting as default"
 
 if [[ ! -e /etc/yum.repos.d/adoptium.repo ]]; then
 	log "installing - repository for adoptium"
@@ -52,27 +51,25 @@ EOF
 fi
 
 log "installing - jdk version $VERSION"
-sudo dnf install temurin-$VERSION-jdk
+sudo dnf install -y temurin-$VERSION-jdk
 log "installing - jre version $VERSION"
-sudo dnf install temurin-$VERSION-jre
+sudo dnf install -y temurin-$VERSION-jre
 
-if [[ $SET_DEFAULT == true ]]; then
-	log "configuring - default java to JDK $VERSION"
-	sudo /usr/sbin/alternatives --install /usr/bin/java java /usr/lib/jvm/temurin-$VERSION-jdk/bin/java 21000
-	sudo /usr/sbin/alternatives --install /usr/bin/javac javac /usr/lib/jvm/temurin-$VERSION-jdk/bin/javac 21000
-	sudo /usr/sbin/alternatives --set java /usr/lib/jvm/temurin-$VERSION-jdk/bin/java
-	sudo /usr/sbin/alternatives --set javac /usr/lib/jvm/temurin-$VERSION-jdk/bin/javac
+log "configuring - default java to JDK $VERSION"
+sudo /usr/sbin/alternatives --install /usr/bin/java java /usr/lib/jvm/temurin-$VERSION-jdk/bin/java 21000
+sudo /usr/sbin/alternatives --install /usr/bin/javac javac /usr/lib/jvm/temurin-$VERSION-jdk/bin/javac 21000
+sudo /usr/sbin/alternatives --set java /usr/lib/jvm/temurin-$VERSION-jdk/bin/java
+sudo /usr/sbin/alternatives --set javac /usr/lib/jvm/temurin-$VERSION-jdk/bin/javac
 
-	log "setting JAVA_HOME in /etc/profile.d/java.sh"
-	sudo tee /etc/profile.d/java.sh > /dev/null <<EOF
+log "setting JAVA_HOME in /etc/profile.d/java.sh"
+sudo tee /etc/profile.d/java.sh >/dev/null <<EOF
 export JAVA_HOME=/usr/lib/jvm/temurin-$VERSION-jdk
 export PATH=\$JAVA_HOME/bin:\$PATH
 EOF
-	sudo chmod +x /etc/profile.d/java.sh
+sudo chmod +x /etc/profile.d/java.sh
 
-	log "printing - alternatives list for java"
-	alternatives --list | grep java
-fi
+# log "printing - alternatives list for java"
+# alternatives --list | grep java
 
 # log "updating alternatives"
 # sudo update-alternatives --config java
@@ -83,5 +80,8 @@ log "printing - which java"
 which java
 log "printing - /usr/lib/jvm path"
 ls -l /usr/lib/jvm/
+
+log "please run the following command:"
+log "\$ source /etc/profile.d/java.sh"
 
 log "done"
