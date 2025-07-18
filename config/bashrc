@@ -25,14 +25,14 @@ export HISTSIZE=10000
 
 # Prompt appearance
 # Number of trailing dirs on prompt
-# export PROMPT_DIRTRIM=2
+export PROMPT_DIRTRIM=1
 # Function to display git branch
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # Prompt variable PS1
-PS1='\[\033[38;5;39m\]\u\[\033[38;5;245m\]@\[\033[38;5;33m\]\h \[\033[38;5;245m\][\[\033[38;5;76m\]\w\[\033[38;5;245m\]]\[\033[38;5;196m\]$(parse_git_branch)\n\[\033[38;5;208m\]❯\[\033[0m\] '
+# PS1='\[\033[38;5;39m\]\u\[\033[38;5;245m\]@\[\033[38;5;33m\]\h \[\033[38;5;245m\][\[\033[38;5;76m\]\w\[\033[38;5;245m\]]\[\033[38;5;196m\]$(parse_git_branch)\n\[\033[38;5;208m\]❯\[\033[0m\] '
 
 # Aliases
 alias aliases="cat $HOME/.bashrc | grep alias"
