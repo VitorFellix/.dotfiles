@@ -1,14 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		-- Java support
-		"nvim-java/nvim-java",
-		"nvim-java/lua-async-await",
-		"nvim-java/nvim-java-refactor",
-		"nvim-java/nvim-java-core",
-		"nvim-java/nvim-java-test",
-		"nvim-java/nvim-java-dap",
-
 		-- Completion
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
@@ -28,6 +20,16 @@ return {
 		"nvimtools/none-ls.nvim", -- null-ls successor
 	},
 	config = function()
+		local lspconfig = require("lspconfig")
+
+		local on_attach = function(_, bufnr)
+			local opts = { buffer = bufnr, remap = false }
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+		end
+
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -57,6 +59,20 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities()
 		)
+
+		lspconfig.jdtls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- Inside pyright config:
+		lspconfig.pyright.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- Lua setup
+		lspconfig.lua_ls.setup{}
 
 		-- Autopairs setup
 		require("nvim-autopairs").setup({
@@ -100,6 +116,5 @@ return {
 				null_ls.builtins.formatting.shfmt,
 			},
 		})
-
 	end,
 }
