@@ -1,3 +1,5 @@
+# you can import other files like this
+# import = ["",""]
 
 # you can set default environment variables with
 # [env]
@@ -30,7 +32,7 @@ duration = 0
 save_to_clipboard = true
 
 [cursor]
-style = { shape = "Underline", blinking = "On"}
+style = { shape = "Block", blinking = "On"}
 vi_mode_style = { shape = "Block", blinking = "On"}
 thickness = 0.15
 
@@ -43,7 +45,4 @@ bindings = [
 ]
 
 [general]
-# you can import other files like this
-# import = ["",""]
-
 live_config_reload = true
