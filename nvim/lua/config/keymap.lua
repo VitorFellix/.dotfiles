@@ -5,7 +5,7 @@ vim.g.have_nerd_font = true
 -- Basic keymaps
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format file" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight search" })
--- vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Open nvim Explorer (aka :Ex)" })
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Open nvim Explorer (aka :Ex)" })
 vim.keymap.set("n", "<leader>E", ":Neotree filesystem reveal float<CR>", { desc = "Open Neotree on float mode" })
 
 -- Quick escape from insert mode
