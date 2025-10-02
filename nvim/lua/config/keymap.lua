@@ -83,11 +83,5 @@ vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete current b
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Next quickfix item" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Previous quickfix item" })
 
--- Reload configuration command
-vim.api.nvim_create_user_command("ReloadConfig", function()
-	vim.cmd("source " .. vim.env.MYVIMRC)
-	vim.notify("Neovim config reloaded!", vim.log.levels.INFO)
-end, { desc = "Reload Neovim configuration" })
-
 -- Reload keymap shortcut
 vim.keymap.set("n", "<leader>R", "<cmd>ReloadConfig<CR>", { desc = "Reload Neovim config" })
