@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo openconnect -b --protocol gp --server vpn.ons.org.br --user vfelix.simepar@vpn
