@@ -5,11 +5,9 @@ return {
 			'nvim-telescope/telescope-ui-select.nvim',
 			'sharkdp/fd', -- a opensource version of find
 			{
+				-- Faster implementation of fuzzy finder in C
 				'nvim-telescope/telescope-fzf-native.nvim',
 				build = 'make',
-				cond = function()
-					return vim.fn.executable('make') == 1
-				end,
 			},
 			{
 				'nvim-tree/nvim-web-devicons',
