@@ -20,8 +20,6 @@ return {
 		"nvimtools/none-ls.nvim", -- null-ls successor
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
-
 		local on_attach = function(_, bufnr)
 			local opts = { buffer = bufnr, remap = false }
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -53,26 +51,38 @@ return {
 			}),
 		})
 
-		local capabilities = vim.tbl_deep_extend(
-			"force",
-			{},
-			vim.lsp.protocol.make_client_capabilities(),
-			cmp_lsp.default_capabilities()
-		)
-
-		lspconfig.jdtls.setup({
+		-- Get the default capabilities of the client to be sent to the lsp server
+		local capabilities = cmp_lsp.default_capabilities()
+		local default_config = {
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
-		-- Inside pyright config:
-		lspconfig.pyright.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- Lua setup
-		lspconfig.lua_ls.setup{}
+		-- Table of LSPs to configure and enable
+		local servers = { "jdtls", "pyright", "lua_ls" }
+		for _, lsp in ipairs(servers) do
+			if lsp == "lua_ls" then
+				vim.lsp.config[lsp] = {
+					capabilities = capabilities,
+					on_attach = on_attach,
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+							},
+							diagnostics = {
+								globals = { "vim" },
+							},
+						},
+					},
+				}
+				vim.lsp.enable(lsp)
+			else
+				-- Basic configuration for all LSPs
+				vim.lsp.config[lsp] = default_config
+				vim.lsp.enable(lsp)
+			end
+		end
 
 		-- Autopairs setup
 		require("nvim-autopairs").setup({
