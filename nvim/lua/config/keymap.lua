@@ -8,9 +8,10 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight se
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Open nvim Explorer (aka :Ex)" })
 vim.keymap.set("n", "<leader>E", ":Neotree filesystem reveal float<CR>", { desc = "Open Neotree on float mode" })
 
+-- NOTE: This was messing with me when i tried to write Akka
 -- Quick escape from insert mode
-vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
-vim.keymap.set("i", "kk", "<Esc>", { desc = "Exit insert mode" })
+-- vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+-- vim.keymap.set("i", "kk", "<Esc>", { desc = "Exit insert mode" })
 
 -- Disable arrow keys in normal mode to encourage hjkl usage
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!"<CR>')
