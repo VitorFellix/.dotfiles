@@ -1,8 +1,11 @@
 -- if needed read the help menu with -> :h <option>
-vim.opt.mouse = ""
+vim.opt.mouse = "nv"
 
-vim.opt.number = false
-vim.opt.relativenumber = true
+vim.cmd("syntax off")
+vim.cmd("colorscheme kanagawa-wave")
+
+vim.opt.number = true
+vim.opt.relativenumber = false
 
 vim.opt.clipboard = "unnamedplus"
 
@@ -38,10 +41,6 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 
 vim.opt.laststatus = 3
-
-vim.cmd("syntax on")
-vim.cmd("colorscheme kanagawa-wave")
-vim.opt.background = "dark"
 
 vim.opt.title = true
 vim.opt.titlestring = "%t"
