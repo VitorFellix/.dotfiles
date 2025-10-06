@@ -1,17 +1,12 @@
--- Set leader key
-vim.g.mapleader = " "
-vim.g.have_nerd_font = true
-
 -- Basic keymaps
-vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format file" })
+-- Clear highlight
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight search" })
+-- Explorer
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Open nvim Explorer (aka :Ex)" })
 vim.keymap.set("n", "<leader>E", ":Neotree filesystem reveal float<CR>", { desc = "Open Neotree on float mode" })
 
--- NOTE: This was messing with me when i tried to write Akka
--- Quick escape from insert mode
--- vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
--- vim.keymap.set("i", "kk", "<Esc>", { desc = "Exit insert mode" })
+-- Format
+vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format file" })
 
 -- Disable arrow keys in normal mode to encourage hjkl usage
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!"<CR>')
@@ -44,6 +39,11 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
+-- Buffer navigation
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete current buffer" })
+
 -- Better text editing
 vim.keymap.set("n", "<leader>a", "gg<S-v>G", { desc = "Select all text" })
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
@@ -71,18 +71,29 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy line to system clipboar
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 -- Quick save and quit
-vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "Save all files" })
+vim.keymap.set("n", "<leader>s", "<cmd>w<CR>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>S", "<cmd>wa<CR>", { desc = "Save all files" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", { desc = "Quit all" })
-
--- Buffer navigation
-vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
-vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
-vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete current buffer" })
 
 -- Quickfix navigation
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Next quickfix item" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Previous quickfix item" })
 
 -- Reload keymap shortcut
-vim.keymap.set("n", "<leader>R", "<cmd>ReloadConfig<CR>", { desc = "Reload Neovim config" })
+vim.keymap.set("n", "<leader>rs", ":source $MYVIMRC<CR>", { desc = "Source config" })
+vim.keymap.set("n", "<leader>rp", function()
+	local plugins = require("lazy").plugins()
+	local plugin_names = {}
+	for _, plugin in ipairs(plugins) do
+		table.insert(plugin_names, plugin.name)
+	end
+
+	vim.ui.select(plugin_names, {
+		title = "Reload plugin",
+	}, function(selected)
+		require("lazy").reload({ plugins = { selected } })
+	end)
+end
+, { desc = "Reload plugin" })
+vim.keymap.set("n", "<leader>ru", ":update<CR> :source<CR>", { desc = "Update and Source file" })
