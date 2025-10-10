@@ -3,7 +3,18 @@ return {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts = {
-			preset = "modern"
+			preset = "helix",
+			icons = {
+				rules = false,
+				breadcrumb = " ", -- symbol used in the command line area that shows your active key combo
+				separator = "󱦰  ", -- symbol used between a key and it's label
+				group = "󰹍 ", -- symbol prepended to a group
+			},
+			win = {
+				height = {
+					max = math.huge,
+				},
+			},
 		},
 		keys = {
 			{
@@ -14,5 +25,5 @@ return {
 				desc = "Buffer Local Keymaps (which-key)",
 			},
 		},
-	}
+	},
 }
