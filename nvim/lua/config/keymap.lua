@@ -60,7 +60,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down"
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
 -- Better paste (preserve clipboard)
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking replaced text" })
+vim.keymap.set("x", "p", [["_dp]], { desc = "Paste after without yanking replaced text" })
+vim.keymap.set("x", "P", [["_dp]], { desc = "Paste before without yanking replaced text" })
 
 -- Copy to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
@@ -70,8 +71,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy line to system clipboar
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 -- Quick save and quit
-vim.keymap.set("n", "<leader>s", "<cmd>w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>S", "<cmd>wa<CR>", { desc = "Save all files" })
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "Save all files" })
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", { desc = "Quit all" })
 
@@ -93,6 +94,8 @@ vim.keymap.set("n", "<leader>rp", function()
 	}, function(selected)
 		require("lazy").reload({ plugins = { selected } })
 	end)
-end
-, { desc = "Reload plugin" })
+end, { desc = "Reload plugin" })
 vim.keymap.set("n", "<leader>ru", ":update<CR> :source<CR>", { desc = "Update and Source file" })
+
+vim.keymap.set("n", "<leader>l0", ":set laststatus=0<CR>", { desc = "Set laststatus to 0" })
+vim.keymap.set("n", "<leader>l3", ":set laststatus=3<CR>", { desc = "Set laststatus to 3" })
