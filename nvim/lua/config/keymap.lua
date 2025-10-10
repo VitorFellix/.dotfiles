@@ -32,6 +32,10 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
+-- Buffer resizing
+vim.keymap.set("n", "<C-n>", "<C-w>10>", { desc = "Move buffer 10x to right"})
+vim.keymap.set("n", "<C-p>", "<C-w>10<", { desc = "Move buffer 10x to left"})
+
 -- Tab management
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })

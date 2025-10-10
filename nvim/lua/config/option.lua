@@ -26,7 +26,7 @@ vim.opt.showtabline = 0
 vim.opt.expandtab = true
 
 vim.opt.signcolumn = "no"
-vim.opt.scrolloff = 3
+vim.opt.scrolloff = 8
 vim.opt.colorcolumn = "120"
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
@@ -61,3 +61,5 @@ vim.opt.cursorlineopt = "both"
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
+
+vim.opt.winborder="bold"

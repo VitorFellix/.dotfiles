@@ -23,7 +23,7 @@ return {
 		local on_attach = function(_, bufnr)
 			local opts = { buffer = bufnr, remap = false }
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 		end
@@ -46,7 +46,6 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-			}, {
 				{ name = "buffer" },
 			}),
 		})
@@ -59,7 +58,7 @@ return {
 		}
 
 		-- Table of LSPs to configure and enable
-		local servers = { "jdtls", "pyright", "lua_ls" }
+		local servers = { "jdtls", "pyright", "lua_ls", "dockerls", "lemmix"}
 		for _, lsp in ipairs(servers) do
 			if lsp == "lua_ls" then
 				vim.lsp.config[lsp] = {
