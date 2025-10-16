@@ -1,5 +1,8 @@
 [general]
 live_config_reload = true
+import = [
+    "~/.config/alacritty/themes/themes/nightfox.toml"
+]
 
 [window]
 dynamic_padding = true
@@ -37,21 +40,4 @@ hide_when_typing = false
 bindings = [
 	{ key = "F11", mods = "None", action = "ToggleFullscreen" },
 	{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
-	# { key = "U", mods = "Control|Shift", action = "ClearHistory" },
-	# { key = "I", mods = "Control", action = "ScrollHalfPageUp" },
-	# { key = "O", mods = "Control", action = "ScrollHalfPageDown" },
 ]
-
-# [colors.primary]
-# background = "#1d1f21"
-# foreground = "#c5c8c6"
-#
-# [colors.normal]
-# black = "#1d1f21"
-# red = "#cc6666"
-# green = "#b5bd68"
-# yellow = "#f0c674"
-# blue = "#81a2be"
-# magenta = "#b294bb"
-# cyan = "#8abeb7"
-# white = "#c5c8c6"
