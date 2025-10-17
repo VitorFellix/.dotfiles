@@ -6,9 +6,9 @@ import = [
 
 [window]
 dynamic_padding = true
-padding = { x = 6, y = 6 }
+padding = { x = 12, y = 12 }
 decorations = "Full"
-opacity = 0.95
+opacity = 0.8
 decorations_theme_variant="Dark"
 dynamic_title = true
 resize_increments = true
@@ -20,6 +20,9 @@ multiplier = 5
 [font]
 size = 9
 normal = { family = "JetBrainsMono NF", style = "Regular"}
+bold = { family = "JetBrainsMono NF", style = "Regular"}
+italic = { family = "JetBrainsMono NF", style = "Regular"}
+offset = { x = 0, y = 0 }
 # builtin_box_drawing = false # default is true
 
 [bell]

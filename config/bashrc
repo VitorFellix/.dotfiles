@@ -165,10 +165,14 @@ export wallpapers_path="$HOME/Pictures/wallpapers"
 # export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # User specific binaries path
-if ! [[ "$PATH" =~ "/.local/share/coursier/bin" ]]; then
-	export PATH="$PATH:/home/vitor/.local/share/coursier/bin"
+if ! [[ "$PATH" =~ "$HOME/.local/share/coursier/bin" ]]; then
+	export PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
+
+. "$HOME/.cargo/env"
+
 export PYENV_ROOT="$HOME/.pyenv"
+
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
