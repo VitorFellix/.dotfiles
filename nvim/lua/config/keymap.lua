@@ -35,6 +35,8 @@ vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current spli
 -- Buffer resizing
 vim.keymap.set("n", "<C-n>", "<C-w>10>", { desc = "Move buffer 10x to right"})
 vim.keymap.set("n", "<C-p>", "<C-w>10<", { desc = "Move buffer 10x to left"})
+vim.keymap.set("n", "<C-o>", "<C-w>5+", { desc = "Move buffer 5x up"})
+vim.keymap.set("n", "<C-b>", "<C-w>5-", { desc = "Move buffer 5x down"})
 
 -- Tab management
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
@@ -65,12 +67,12 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down"
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
 -- Better paste (preserve clipboard)
-vim.keymap.set("x", "p", [["_dp]], { desc = "Paste after without yanking replaced text" })
-vim.keymap.set("x", "P", [["_dp]], { desc = "Paste before without yanking replaced text" })
+-- vim.keymap.set("x", "p", [["_dp]], { desc = "Paste after without yanking replaced text" })
+-- vim.keymap.set("x", "P", [["_dp]], { desc = "Paste before without yanking replaced text" })
 
 -- Copy to system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy line to system clipboard" })
+vim.keymap.set({ "n", "v" }, "y", [["+y]], { desc = "Copy to system clipboard" })
+vim.keymap.set("n", "Y", [["+Y]], { desc = "Copy line to system clipboard" })
 
 -- Delete without yanking
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
