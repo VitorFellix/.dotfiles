@@ -2,7 +2,7 @@
 vim.opt.mouse = "nv"
 
 vim.cmd("syntax off")
-vim.cmd("colorscheme kanagawa-wave")
+vim.cmd("colorscheme deepwhite")
 
 vim.opt.number = true
 vim.opt.relativenumber = true

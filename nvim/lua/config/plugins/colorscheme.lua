@@ -8,4 +8,5 @@ return {
 	{ "Yazeed1s/oh-lucy.nvim", name = "lucy", lazy = false },
 	{ "tahayvr/matteblack.nvim", name = "matteblack", lazy = false },
 	{ "rebelot/kanagawa.nvim", name = "kanagawa", lazy = false },
+    { "Verf/deepwhite.nvim", name = "deepwhite", lazy = false },
 }
