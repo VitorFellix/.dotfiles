@@ -2,7 +2,7 @@
 vim.opt.mouse = "nv"
 
 vim.cmd("syntax off")
-vim.cmd("colorscheme deepwhite")
+vim.cmd("colorscheme default")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -51,7 +51,7 @@ vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
 vim.opt.updatetime = 100
-vim.opt.laststatus = 0
+vim.opt.laststatus = 3
 
 vim.opt.title = true
 vim.opt.titlestring = "%t"
