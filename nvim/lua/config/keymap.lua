@@ -71,8 +71,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" }
 -- vim.keymap.set("x", "P", [["_dp]], { desc = "Paste before without yanking replaced text" })
 
 -- Copy to system clipboard
-vim.keymap.set({ "n", "v" }, "y", [["+y]], { desc = "Copy to system clipboard" })
-vim.keymap.set("n", "Y", [["+Y]], { desc = "Copy line to system clipboard" })
+-- vim.keymap.set({ "n", "v" }, "y", [["+y]], { desc = "Copy to system clipboard" })
+-- vim.keymap.set("n", "Y", [["+Y]], { desc = "Copy line to system clipboard" })
 
 -- Delete without yanking
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
