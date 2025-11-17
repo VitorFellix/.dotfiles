@@ -11,14 +11,14 @@ return {
 	ft = { "java" },
 	config = function()
 		-- Java plugin setup
-		require("java").setup({
+		vim.lsp.config.java = {
 			jdk = {
 				auto_install = true,
 			},
-		})
+		}
 
 		-- Configure jdtls manually if you want more settings
-		require("lspconfig").jdtls.setup({
+		vim.lsp.config.jdtls = {
 			settings = {
 				java = {
 					configuration = {
@@ -40,6 +40,6 @@ return {
 					},
 				},
 			},
-		})
+		}
 	end,
 }
