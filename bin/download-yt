@@ -10,13 +10,12 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-yt-dlp -f "bv*+ba/b" \
+yt-dlp \
+  -f "bestvideo[fps>=60]+bestaudio/best" \
   --merge-output-format mp4 \
-  --external-downloader-args "-x 16 -k 1M" \
   --retries 10 \
   --fragment-retries 10 \
-  --paths $output_path \
+  --paths "${output_path}" \
   --no-part \
-  --check-formats \
   --no-mtime \
   "$@"
