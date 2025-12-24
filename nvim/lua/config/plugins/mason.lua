@@ -5,16 +5,20 @@ return {
 	},
 
 	{
-		"mason-org/mason-lspconfig.nvim",
-		opts = {
-			automatic_enable = {
-				"lua_ls",
-				"vimls",
-			}
-		},
+		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
+			"williamboman/mason.nvim",
 			"neovim/nvim-lspconfig",
+		},
+		opts = {
+			ensure_installed = {
+				"lua_ls",
+				"pyright",
+				"jdtls",
+				"html",
+				"dockerls",
+				"docker_compose_language_service",
+			},
 		},
 	},
 

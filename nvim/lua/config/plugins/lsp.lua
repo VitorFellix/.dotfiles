@@ -13,32 +13,22 @@ return {
         -- Extra utilities
         "mfussenegger/nvim-dap",
         "j-hui/fidget.nvim",
-        "MunifTanjim/nui.nvim",
         "windwp/nvim-autopairs",
-
-        -- Formatting/Linting
-        "nvimtools/none-ls.nvim", -- null-ls successor
     },
     config = function()
         local on_attach = function(_, bufnr)
             vim.keymap.set(
                 "n",
-                "gd",
-                vim.lsp.buf.definition,
-                { desc = "Go to definition", buffer = bufnr, remap = false }
-            )
-            vim.keymap.set(
-                "n",
-                "<leader>h",
+                "K",
                 vim.lsp.buf.hover,
-                { desc = "Show definition", buffer = bufnr, remap = false }
+                { desc = "LSP: Show hover information", buffer = bufnr, remap = false }
             )
-            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename", buffer = bufnr, remap = false })
+            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol", buffer = bufnr, remap = false })
             vim.keymap.set(
                 "n",
                 "<leader>ca",
                 vim.lsp.buf.code_action,
-                { desc = "Code Action", buffer = bufnr, remap = false }
+                { desc = "LSP: Code action", buffer = bufnr, remap = false }
             )
         end
 
@@ -130,27 +120,6 @@ return {
                     [vim.diagnostic.severity.ERROR] = "ErrorMsg",
                     [vim.diagnostic.severity.WARN] = "WarningMsg",
                 },
-            },
-        })
-
-        -- Formatter / Linter Setup
-        local null_ls = require("null-ls")
-        null_ls.setup({
-            sources = {
-                -- Web: HTML, CSS, JS, TS, JSON
-                null_ls.builtins.formatting.prettier.with({
-                    filetypes = { "html", "css", "javascript", "typescript", "json", "yaml", "markdown" },
-                }),
-
-                -- Lua
-                null_ls.builtins.formatting.stylua,
-
-                -- Go
-                null_ls.builtins.formatting.gofmt,
-                null_ls.builtins.formatting.goimports,
-
-                -- Bash
-                null_ls.builtins.formatting.shfmt,
             },
         })
     end,

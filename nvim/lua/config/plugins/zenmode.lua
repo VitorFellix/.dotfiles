@@ -3,7 +3,7 @@ return {
 	opts = {
 		window = {
 			backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-			width = .7, -- width of the Zen window
+			width = 100, -- width of the Zen window
 			height = 1, -- height of the Zen window
 			options = {
 				signcolumn = "no",
@@ -26,7 +26,7 @@ return {
 			laststatus = 0, -- turn off the statusline in zen mode
             alacritty = {
                 enabled = true,
-                font = "14", -- font size
+                font = "16", -- font size
             },
 		},
 	},

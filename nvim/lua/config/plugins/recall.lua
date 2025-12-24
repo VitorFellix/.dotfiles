@@ -3,11 +3,11 @@ return {
         "fnune/recall.nvim",
         opts = {},
         keys = {
-            { "mm", "<cmd>RecallToggle<cr>",     mode = "n", silent = true },
-            { "mn", "<cmd>RecallNext<cr>",       mode = "n", silent = true },
-            { "mp", "<cmd>RecallPrevious<cr>",   mode = "n", silent = true },
-            { "mc", "<cmd>RecallClear<cr>",      mode = "n", silent = true },
-            { "ml", "<cmd>Telescope recall<cr>", mode = "n", silent = true },
+            { "mm", "<cmd>RecallToggle<cr>",     mode = "n", silent = true, desc = "Recall: Toggle mark" },
+            { "mn", "<cmd>RecallNext<cr>",       mode = "n", silent = true, desc = "Recall: Next mark" },
+            { "mp", "<cmd>RecallPrevious<cr>",   mode = "n", silent = true, desc = "Recall: Previous mark" },
+            { "mc", "<cmd>RecallClear<cr>",      mode = "n", silent = true, desc = "Recall: Clear all marks" },
+            { "ml", function() Snacks.picker.marks() end, desc = "Recall: Search marks" },
         },
     },
     -- mx              Set mark x

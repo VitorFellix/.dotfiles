@@ -18,28 +18,28 @@ return {
 		}
 
 		-- Configure jdtls manually if you want more settings
-		vim.lsp.config.jdtls = {
-			settings = {
-				java = {
-					configuration = {
-						runtimes = {
-							{
-								name = "Temurin-21",
-								path = "/usr/lib/jvm/temurin-21-jdk",
-								default = true,
-							},
-							{
-								name = "Temurin-11",
-								path = "/usr/lib/jvm/temurin-11-jdk",
-							},
-							{
-								name = "Temurin-8",
-								path = "/usr/lib/jvm/temurin-8-jdk",
-							},
-						},
-					},
-				},
-			},
-		}
+		-- vim.lsp.config.jdtls = {
+		-- 	settings = {
+		-- 		java = {
+		-- 			configuration = {
+		-- 				runtimes = {
+		-- 					{
+		-- 						name = "Java 21",
+		-- 						path = "/usr/lib/jvm/java-21-openjdk-amd64",
+		-- 						default = true,
+		-- 					},
+		-- 					{
+		-- 						name = "Java 11",
+		-- 						path = "/usr/lib/jvm/java-11-openjdk-amd64",
+		-- 					},
+		-- 					{
+		-- 						name = "Java 8",
+		-- 						path = "/usr/lib/jvm/java-8-openjdk-amd64",
+		-- 					},
+		-- 				},
+		-- 			},
+		-- 		},
+		-- 	},
+		-- }
 	end,
 }

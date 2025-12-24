@@ -2,7 +2,7 @@
 vim.opt.mouse = "nv"
 
 vim.cmd("syntax off")
-vim.cmd("colorscheme default")
+vim.cmd("colorscheme gruvdark")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -25,7 +25,7 @@ vim.opt.showmode = false
 vim.opt.showtabline = 0
 vim.opt.expandtab = true
 
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 vim.opt.colorcolumn = "120"
 vim.opt.termguicolors = true
@@ -60,6 +60,4 @@ vim.opt.winborder = "bold"
 vim.opt.cursorlineopt = "both"
 
 vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
-
-vim.opt.winborder="bold"
+-- vim.opt.fileencoding = "utf-8"
