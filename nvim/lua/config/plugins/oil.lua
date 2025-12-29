@@ -11,8 +11,7 @@ return {
     },
     -- Buffer-local options to use for oil buffers
     buf_options = {
-      buflen = false,
-      nowrap = true,
+      buflisted = false,
     },
     -- Window-local options to use for oil buffers
     win_options = {
@@ -40,7 +39,7 @@ return {
       ["gs"] = "actions.change_sort",
       ["gx"] = "actions.open_external",
       ["g."] = "actions.toggle_hidden",
-      ["g\\] = "actions.toggle_trash",
+      ["g\\"] = "actions.toggle_trash",
     },
     -- Set to false to disable all of the above keymaps
     use_default_keymaps = true,

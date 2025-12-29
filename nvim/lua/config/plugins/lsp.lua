@@ -24,6 +24,7 @@ return {
                 { desc = "LSP: Show hover information", buffer = bufnr, remap = false }
             )
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol", buffer = bufnr, remap = false })
+            vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "LSP: Rename symbol", buffer = bufnr, remap = false })
             vim.keymap.set(
                 "n",
                 "<leader>ca",

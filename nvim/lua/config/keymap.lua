@@ -4,8 +4,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highl
 -- Explorer
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
--- Disable arrow keys
- in normal mode to encourage hjkl usage
+-- Disable arrow keys in normal mode to encourage hjkl usage
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!"<CR>')
@@ -24,10 +23,10 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Focus lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Focus upper window" })
 
 -- Window management
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+vim.keymap.set("n", "<leader>|", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Buffer resizing
 vim.keymap.set("n", "<C-n>", "<C-w>10>", { desc = "Resize window right" })
@@ -75,8 +74,8 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yank
 
 -- Quick save and quit
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>q", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "Save all files" })
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", { desc = "Quit all" })
 
 -- Quickfix navigation

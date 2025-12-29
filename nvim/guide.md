@@ -47,13 +47,14 @@ Use Harpoon to "mark" files you are currently working on.
 
 ### LSP & Coding
 - **Diagnostics List**: `<leader>xx` (Toggle Trouble list)
-- **Format**: `<leader>F` (Powered by `conform.nvim` with auto-format on save)
+- **Rename**: `<F2>` or `<leader>rn`
+- **Format**: `<leader>F` (Powered by `conform.nvim`)
 - **Search & Replace**: `<leader>sr` (Powered by `grug-far.nvim`)
 - **Fast Jump**: Press `s` followed by 2 characters (Powered by `flash.nvim`)
 
 ### Sessions & Workflow
-- **Restore Session**: `<leader>qs` (Restores the session for the current directory)
-- **Last Session**: `<leader>ql` (Restores the last session regardless of directory)
+- **Restore Session**: `<leader>Ss` (Restores the session for the current directory)
+- **Last Session**: `<leader>Sl` (Restores the last session regardless of directory)
 - **Markdown**: Your markdown files are now rendered with `render-markdown.nvim`.
 - **Code Action**: `<leader>ca`
 - **Format**: `<leader>F`
@@ -69,7 +70,7 @@ Use Harpoon to "mark" files you are currently working on.
 ### Window Management
 - **Focus**: `<C-h/j/k/l>` to move between splits.
 - **Resize**: `<C-n/p/o/b>` to grow/shrink windows.
-- **Splits**: `<leader>sv` (vertical) and `<leader>sh` (horizontal).
+- **Splits**: `<leader>|` (vertical) and `<leader>-` (horizontal).
 
 ## Completed To-dos
 - [x] Easy way of putting ({['""']}) around a word (Use `saiw`)

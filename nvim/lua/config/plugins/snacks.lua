@@ -16,6 +16,7 @@ return {
     quickfile = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
+    terminal = { enabled = true },
     words = { enabled = true },
     styles = {
       notification = {
@@ -29,33 +30,32 @@ return {
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep text" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command history" },
     -- Find
-    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Search buffers" },
-    { "<leader>ff", function() Snacks.picker.files() end, desc = "Search files" },
-    { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Search git files" },
-    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Search recent files" },
+    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "Files" },
+    { "<leader>fG", function() Snacks.picker.git_files() end, desc = "Git Files" },
+    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
     -- Git
-    { "<leader>gc", function() Snacks.picker.git_log() end, desc = "Git log" },
-    { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git status" },
-    -- Grep
-    { "<leader>sb", function() Snacks.picker.lines() end, desc = "Search in current buffer" },
-    { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Search current word" },
-    { "<leader>sg", function() Snacks.picker.grep() end, desc = "Search by grep" },
+    { "<leader>gc", function() Snacks.picker.git_log() end, desc = "Git Log" },
+    { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
     -- Search
-    { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Search diagnostics" },
-    { "<leader>sh", function() Snacks.picker.help() end, desc = "Search help" },
-    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Search keymaps" },
-    { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Search quickfix" },
-    { "<leader>su", function() Snacks.picker.resume() end, desc = "Search resume" },
+    { "<leader>fl", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+    { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual Selection or Word" },
+    { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+    { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
+    { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+    { "<leader>fq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+    { "<leader>fu", function() Snacks.picker.resume() end, desc = "Resume Search" },
     -- LSP
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "LSP: Go to definition" },
     { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "LSP: References" },
     { "gi", function() Snacks.picker.lsp_implementations() end, desc = "LSP: Go to implementation" },
     { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "LSP: Go to type definition" },
-    { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP: Symbols" },
+    { "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
 
     -- Existing Snacks utilities
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle scratch buffer" },
-    { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select scratch buffer" },
+    { "<leader>fS",  function() Snacks.scratch.select() end, desc = "Select scratch buffer" },
     { "<leader>nh", function() Snacks.notifier.show_history() end, desc = "Notification history" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete buffer" },
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename file" },
