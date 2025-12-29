@@ -12,33 +12,36 @@
 - **Preview**: `<C-p>`
 - **Refactoring**: You can rename, move, or delete files by editing the text in the Oil buffer and saving the file (`:w`).
 
+### Search & Navigation (`<leader>f`)
+We use `snacks.picker` for lightning-fast searching.
+
 - **Search Files**: `<leader>ff`
-- **Global Search (Grep)**: `<leader>/`
-- **Go to Definition**: `gd`
-- **Show References**: `gr`
-- **Floating Terminal**: `<C-/>`
-- **Lazygit**: `<leader>gg`
-- **Dismiss Notifications**: `<leader>un`
+- **Global Grep**: `<leader>fg`
+- **Search Buffer Lines**: `<leader>fl`
+- **Search Word under cursor**: `<leader>fw`
+- **Recent Files**: `<leader>fr`
+- **Git Files**: `<leader>fG`
+- **LSP Symbols**: `<leader>fs`
+- **Project Replace**: `<leader>fR` (Grug-far)
 
 #### Handling Previews in Snacks
-When the picker is open (like in `<leader>ff` or `gd`):
-- **Scroll Preview**: Use `<C-f>` to scroll down and `<C-b>` to scroll up in the preview window.
-- **Toggle Preview**: Use `<M-p>` (Alt+p) to hide/show the preview window if it's in the way.
+When the picker is open:
+- **Scroll Preview**: `<C-f>` (down), `<C-b>` (up)
+- **Toggle Preview**: `<M-p>` (Alt+p)
 
 ---
 
-### Surround (Wrapping Text)
-We use `mini.surround` to handle quotes, brackets, and tags.
+### Surround (`mini.surround`)
+Wrap text objects with brackets, quotes, etc.
 
-- **Add Surround**: `saiw)` -> **s**urround **a**dd **i**nner **w**ord **)**
-- **Delete Surround**: `sd'` -> **s**urround **d**elete **'**
-- **Replace Surround**: `sr)'` -> **s**urround **r**eplace **)** with **'**
+- **Add**: `sa{motion}{char}` (e.g., `saiw"` surrounds word with quotes)
+- **Delete**: `sd{char}` (e.g., `sd"` deletes surrounding quotes)
+- **Replace**: `sr{old}{new}` (e.g., `sr"'` replaces `"` with `'`)
+- **Visual**: Select text then `sa{char}`
 
 ---
 
 ### Harpoon 2 (Quick Navigation)
-Use Harpoon to "mark" files you are currently working on.
-
 - **Mark File**: `<leader>ha`
 - **Open Menu**: `<leader>he`
 - **Quick Jump**: `<leader>h1`, `<leader>h2`, etc.
@@ -46,34 +49,37 @@ Use Harpoon to "mark" files you are currently working on.
 ---
 
 ### LSP & Coding
-- **Diagnostics List**: `<leader>xx` (Toggle Trouble list)
+- **Go to Definition**: `gd`
+- **Show References**: `gr`
 - **Rename**: `<F2>` or `<leader>rn`
-- **Format**: `<leader>F` (Powered by `conform.nvim`)
-- **Search & Replace**: `<leader>sr` (Powered by `grug-far.nvim`)
-- **Fast Jump**: Press `s` followed by 2 characters (Powered by `flash.nvim`)
-
-### Sessions & Workflow
-- **Restore Session**: `<leader>Ss` (Restores the session for the current directory)
-- **Last Session**: `<leader>Sl` (Restores the last session regardless of directory)
-- **Markdown**: Your markdown files are now rendered with `render-markdown.nvim`.
-- **Code Action**: `<leader>ca`
 - **Format**: `<leader>F`
+- **Code Action**: `<leader>ca`
+- **Diagnostics**: `<leader>xx` (Trouble list)
+- **Fast Jump**: `s` + 2 characters (Flash)
+
+### Sessions (`<leader>S`)
+- **Restore Current**: `<leader>Ss`
+- **Restore Last**: `<leader>Sl`
+- **Stop Saving**: `<leader>Sd`
+
+### Git & Terminal
+- **Lazygit**: `<leader>gg`
+- **Git Status**: `<leader>gs`
+- **Floating Terminal**: `<C-/>`
+- **Dismiss Notifications**: `<leader>un`
 
 ---
 
 ## Tips & Tricks
 
 ### Selection
-- **Select Inside**: `vi(` or `vi[` or `vi"` to select everything inside the brackets/quotes.
 - **Select All**: `<leader>a`
+- **Select Inside**: `vi(` or `vi[` or `vi"`
 
-### Window Management
-- **Focus**: `<C-h/j/k/l>` to move between splits.
-- **Resize**: `<C-n/p/o/b>` to grow/shrink windows.
-- **Splits**: `<leader>|` (vertical) and `<leader>-` (horizontal).
-
-## Completed To-dos
-- [x] Easy way of putting ({['""']}) around a word (Use `saiw`)
-- [x] Easy way selecting inside a ({[]}) (Use `vi[`)
-- [x] A way to see the entire name of a file (Snacks picker handles this)
-- [x] How to move the preview in snacks (Use `<C-f>` and `<C-b>`)
+### Window Management (`<leader>w`)
+- **Focus**: `<C-h/j/k/l>`
+- **Resize**: `<C-n/p/o/b>`
+- **Vertical Split**: `<leader>|`
+- **Horizontal Split**: `<leader>-`
+- **Equal Size**: `<leader>we`
+- **Close Split**: `<leader>wx`
